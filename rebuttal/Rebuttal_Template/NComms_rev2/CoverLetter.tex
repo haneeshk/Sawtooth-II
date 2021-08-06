@@ -1,0 +1,755 @@
+\documentclass[11pt,letterpaper]{report}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Page layout
+\usepackage{graphics,graphicx,wrapfig}
+\usepackage[letterpaper, margin=2.5 cm, headheight=4 cm, top= 6cm]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage{parskip}
+\setlength{\parskip}{0.5em}
+
+\usepackage{fancyhdr}
+\usepackage{bm}
+\usepackage{upgreek}
+
+\fancyhf{}
+\fancyhead[L]{
+\includegraphics[height=3 cm]{../Figures/Brown_Letterhead/H_2c_Pos}
+\\
+}
+%
+\fancyhead[C]{
+\parbox[b][3.5cm][t]{4cm}{
+\begin{flushright}
+Haneesh Kesari
+\\
+Assistant Professor
+\\
+of Engineering
+\\
+\end{flushright}
+}
+}
+%
+\fancyhead[R]{
+\parbox[b][3.5cm][t]{6cm}{
+\begin{flushleft}
+School of Engineering
+\\
+Brown University
+\\
+184 Hope Street, B\&H 612
+\\
+Providence, RI 02912
+\\
+Phone: 401-863-1418
+\\
+Email: Haneesh\_Kesari@brown.edu
+\\
+\end{flushleft}
+}
+}
+
+\fancypagestyle{plain}{
+\fancyhf{} % remove everything
+%
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+%
+\renewcommand{\footrulewidth}{0pt}
+%
+\fancyfoot[R]{\thepage / \pageref{LastPage}}
+}
+
+%% Fonts
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{cmbright}
+\usepackage{bm}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{16}{16}\selectfont}
+
+%% typesetting
+\usepackage{tabto}
+\usepackage{upgreek}
+
+%% colors
+\usepackage[dvipsnames]{xcolor}
+\definecolor{DarkRed}{rgb}{0.62, 0.16, 0.09}
+
+%% referencing
+\usepackage{nameref}
+\usepackage{lastpage}
+\usepackage[biblabel]{cite}
+\usepackage[colorlinks=true,urlcolor=DarkRed,linkcolor=DarkRed,citecolor=black]{hyperref}
+
+%% enumerate
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%% floats
+\usepackage{float}
+\usepackage[font=footnotesize, labelfont={bf},labelsep=period]{caption}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+%% custom commands
+\newcommand{\loc}{\textit{LoC}}
+
+\newcommand{\norm}[1]{\ensuremath \lVert #1 \rVert}
+
+\newcommand{\ex}{{\bm{\hat{e}}}_1}
+\newcommand{\ey}{{\bm{\hat{e}}}_2}
+\newcommand{\ez}{{\bm{\hat{e}}}_3}
+\newcommand{\ei}{{\bm{\hat{e}}}_i}
+\newcommand{\ej}{{\bm{\hat{e}}}_j}
+\newcommand{\er}{{\bm{\hat{e}}}_r}
+\newcommand{\et}{{\bm{\hat{e}}}_\theta}
+\newcommand{\ep}{{\bm{\hat{e}}}_\phi}
+
+\usepackage{xspace}
+\newcommand{\TA}{\textit{Ta.\@}\xspace}
+\newcommand{\EA}{\textit{Ea.\@}\xspace}
+
+%% checklist
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+
+
+\begin{document}
+Ideas for new titles
+
+Original = "Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?"
+
+t0 = "Evaluation of the relatively low toughness enhancement of spicules of the marine sponge Euplectella aspergillum"
+
+t1 = "Lamellar architecture does not always significantly enhance toughness in stiff biological materials"
+
+t2="Lamellar composite architectures from stiff biological materials may not always be templates for significant toughness enhancement"
+
+t3 = "Lamellar architectures from biological materials can be poor \
+templates for significantly enhancing toughness in composites";
+
+t4 = "Lamellar architectures from stiff biological materials can be \
+poor templates for  toughness enhancements in composites";
+
+t5 = "Lamellar architectures from stiff biological materials can be \
+poor templates for enhancing toughness in composites";
+
+t6 = "Lamellar architectures from stiff biological materials are \
+sometimes poor templates for enhancing toughness in composites";
+
+t7 = "Lamellar architecture in stiff biological materials is not necessarily a template for significant toughness enhancement";
+
+t8 = "Questioning lamellar architecture as a template for significant toughness enhancement";
+
+t9 = "Investigation of marine sponge spicules shows lamellar architecture is not necessarily a template for toughness"
+
+t10 = "Investigation of the low toughness of Euplectella aspergillum spicules and implications for bioinspired materials"
+
+t11 = "Relatively low toughness enhancement in Euplectella aspergillum spicules and its implications for bioinspired materials"
+
+t12 = "Cylindrically layered architecture in Euplectella Aspergillum spicules provides relatively low toughness enhancement"
+
+t13 = \textbf{"Lamellar architectures in stiff biomaterials may not always be templates for enhancing toughness in composites"}
+
+t14 = "Architecture in Stiff Biomaterials is  a Template for Toughness Enhancement in some cases while in others can be a Siren Song"
+
+t15 = "Architecture in stiff biomaterials is a template for toughness enhancement in some cases while in others it could be a siren song"
+
+t16 = "Architecture in stiff biomaterials in some cases a template for toughness enhancement while in others a siren song"
+
+t17 = "Architecture in stiff biomaterials can be  a template for toughness enhancement or a siren song"
+
+
+
+
+
+\newpage
+\textbf{TODO/CHECK}\\
+(Compiled from editor's email, manuscript checklist, editorial policy checklist, and reporting summary)\\
+\textcolor{violet}{Sayaka's concerns/comments in purple}
+\textcolor{red}{Max's replies in red}
+
+
+\textbf{Abstract}
+\begin{todolist}
+\item[\done] "Results of the current study are written in present tense"-\textit{manuscript checklist} -> \textcolor{violet}{There are parts written in past tense at the moment, need modification}. \textcolor{red}{I've modified the abstract so that it is in present tense only}
+\end{todolist}
+
+\textbf{Title}
+\begin{todolist}
+\item[\done] "...must be descriptive of the work" -\textit{editor} ->\textcolor{violet}{Discuss again considering this editor's comment}
+\end{todolist}
+
+
+\textbf{Main Text}
+\begin{todolist}
+\item[\done] Remove 250 words (keep Introduction, Result, and Discussion with 5,000 words) \textcolor{red}{discuss changes with Haneesh}
+\item[\done]"Section order is : Title, Abstract, Introduction, Results, Discussion, Methods, References, End Notes, Figure legends, Tables" -\textit{manuscript checklist}
+\end{todolist}
+
+\textbf{Introduction}
+\begin{todolist}
+\item[\done] "Contains no reference to display items (unless overview figures are presented) -\textit{manuscript checklist}
+-> \textcolor{violet}{Do Figures 1 and 2 count as overview figures?}\textcolor{red}{I think so}
+\item[\done] "Please rearrange the Introduction so that all discussion of previous work appears first. The final paragraph should contain only a concise summary of the current work, in the present tense without any references." -\textit{editor} -> \textcolor{violet}{Please check}\textcolor{red}{checked. looks good}
+\item[\done] "Less than 1,000 words" -\textit{manuscript checklist}
+\end{todolist}
+
+% %\textbf{Discussion}
+% \begin{todolist}
+% %\item "Does not contain overlap with results section" -\textit{manuscript checklist} -> \textcolor{violet}{}
+% \end{todolist}
+
+\textbf{Methods}
+\begin{todolist}
+%\item "Contain sufficient detail to repeat experiments" -\textit{manuscript checklist}
+\item[\done] "Statement about availability of computer code, if important for main conclusions, is provided as a separate section under the heading "Code Availability" after the data availability statement but before the References"-\textit{manuscript checklist, editorial policy checklist, and reporting summary}
+\item [\done] "The paper conforms to our requirements on mandatory data deposition \\ (see http://www.nature.com/authors/policies/data/data-availability-statements-data-citations.pdf)"-\textit{manuscript checklist}
+\item[\done] "We have described these restrictions in the manuscript": "Describe any restriction on the availability of unique materials OR confirm that all unique materials used are readily available from the authors or from standard commercial sources (and specify these sources)" \textit{editorial policy checklist} -> \textcolor{violet}{Where we obtained EA skeletons from?}
+\end{todolist}
+
+\textbf{References}
+\begin{todolist}
+\item[\done] "References to web-only journals include: 'Authors, Title. Journal, url/doi and year of publication" -\textit{manuscript checklist} \textcolor{BlueGreen}{[Sayaka]}
+\item[\done] "References to preprint servers should be formatted as 'Authors.Preprint title. For example: Preprint at http://arxiv.org/labs/YYMM.NNNN(Year)'"-\textit{manuscript checklist}
+\item[\done] "Contains only published work or work in press (including doi number)" -\textit{manuscript checklist}
+\item[\done]"As a guideline, Articles allow up to 70 references" -\textit{manuscript checklist}
+\end{todolist}
+
+\textbf{End Notes}
+\begin{todolist}
+\item[\done]"Please ensure the references are numbered in the order they appear in the text, followed by the tables and figures" -\textit{editor}
+\end{todolist}
+
+ \textbf{Legends}
+ \begin{todolist}
+ %\item "Every panel is described" -\textit{manuscript checklist}
+ \item[\done] "Length of scale bars is defined" -\textit{manuscript checklist} \textcolor{BlueGreen}{[Sayaka]}
+ \end{todolist}
+
+\textbf{Figures}
+\begin{todolist}
+\item[\done] "Panels are not subdivided" -\textit{manuscript checklist} -> \textcolor{violet}{Figures 9D and 9F do not count as subdivided (or do they?) } \textcolor{red}{no. as long as we do not label them as ``9D(i) and 9D(ii)'' I think we are OK.}
+\item[\done] "Scale bars are included (but not labelled within the figure)" -\textit{manuscript checklist} \textcolor{BlueGreen}{[Sayaka]}
+\item[\done] "Avoid the use of red and green in figures to avoid confusion for colour-blind readers (magenta and turquoise are alternatives) -\textit{manuscript checklist, editor(Submission Information)} -> \textcolor{violet}{Figure 4B ,5C, 5D, and 8A, 8B contain both red/green color scheme within single panel. Should we change the coloring? I feel the coloring isn't critically crucial for interpretation of our figures. } \textcolor{red}{I agree that color isnt crucial for interpretation. I would like to avoid changing these at this point because I think that it poses a large enough risk of making a mistake if we do change them...}
+\item[\done] "Authors should list all image acquisition tools and image processing software packages used. Authors should document key image-gathering settings and processing manipulations in the Methods" -\textit{editorial policy checklist(Image integrity and Standards)} -> \textcolor{violet}{Do we want to add more details in Figure 6 legend?}
+\item[\done] "Production-quality versions of all figures, supplied as separate files containing all panels. ..please provide the highest quality, vector format versions of your images (.ai,.eps, .psd) where available." -\textit{editor (Submission information)} \textcolor{BlueGreen}{[Sayaka]}
+    \begin{todolist}
+        \item[\done] "Text and labelling should be in a separate layer"
+        \item[\done] "If vector files are not available then please supply the figures in whichever format they were compiled in and not saved as flat .jpeg or .TIFF"
+        \item[\done]"If your artwork contains any photographic images, please ensure that these are at least 300 dpi"
+    \end{todolist}
+\item[\done] "Use the same typeface (Arial or Helvetica) for all figures. Use symbol font for Greek letters" -\textit{Brief Guide for submission} -> \textcolor{violet}{Font for axis labels in Figure 8 and Supplementary Figure 1 are not Helvetica, should I change them?}\textcolor{red}{Are you referring to the math symbols (for example $\alpha$)? If so, these are OK not in helvetica.}
+\item[\done] First appearance of figure in text must be Bold
+\item[\done] Change Figure 8 references \textcolor{BlueGreen}{[Sayaka]}
+\end{todolist}
+
+\textbf{Tables}
+\begin{todolist}
+\item[\done]"If table legend is required, it is displayed underneath the table"-\textit{manuscript checklist} -> \textcolor{violet}{Table 1 legend needs modification?}
+\item[\done] "Please ensure that figure legend titles do not include reference to specific figure panels" -\textit{editor(Display items)}-> \textcolor{violet}{I'm not sure if this applies to Tables. Table 1 title contains reference to Figure 4.}\textcolor{red}{Here they dont want the first sentence of the figure caption to refer to a specific panel (for example, (A)). So we are OK}
+\item[\done] "Tables need to be black and white, fit onto a single A4 portrait page" -\textit{editor(Display items)}
+\end{todolist}
+
+% %\textbf{Supplementary Information}
+% \begin{todolist}
+% %\item "Supplementary Information does not contain essential display items (these should be displayed in the main text)" --\textit{manuscript checklist}
+% %\item "Supplementary Information does not contain Results" -\textit{manuscript checklist}
+% \end{todolist}
+
+\textbf{Cover Letter}
+\begin{todolist}
+\item[\done] "Please state in the cover letter 'I wish to participate in transparent peer review' if you want to opt in" -\textit{editor}
+\end{todolist}
+
+\textbf{Others}
+\begin{todolist}
+\item[\done] "Your paper will be accompanied by a two-sentence Editor's summary, of between 250-300 characters including spaces.....could you please approve the draft summary below or provide us with a suitably edited version?" -\textit{editor}
+\begin{todolist}
+    \item[\done] "The toughness enhancement of nacre has been widely studied; other layered structures are found in nature but with lower toughness enhancement. Here, the authors report on a study into the toughness enhancement of the spicules of a marine sponge and investigate why lower toughness enhancement is observed." \textcolor{red}{Nacre is a biological composite whose architecture greatly enhances its toughness. Here, the authors report on the toughness enhancement in the spicules of a marine sponge. The spicules display similar architecture to nacre. However, their architecture does not lead to similar toughness enhancement.}
+\end{todolist}
+\item[\done] "If you wish, an interesting image (but not an illustration or schematic) for consideration as . 'Featured Image' on the Nature Communications homepage....The file should be 1400x400 pixels in RGB format and should be uploaded as 'Related Manuscript File'"-\textit{editor} -> \textcolor{violet}{Do we want to submit Figure 6A?}
+\end{todolist}
+
+
+\newpage
+\setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{fancy}
+\phantom{x}
+\vspace{4em}
+%\textbf{Cover Letter}
+
+
+Regarding: Author response to editorial requests (manuscript NCOMMS-18-11797493).
+%  Revision of original research article \textit{``Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?''}
+
+\vspace{4em}
+Dear Editors,
+
+We thank you for your very valuable feedback. In response to your editorial requests, we have made the revisions listed in the section \textit{List Of Changes} (\loc) on page \pageref{EditorialChange} of this letter.
+
+We wish to participate in transparent peer review.
+
+We would like the following Twitter accounts to be mentioned upon publication:
+\begin{enumerate}
+\item @BrownUniversity
+\item @BrownUResearch
+\item @brownengin
+\end{enumerate}
+
+We thank you for your consideration of our revised manuscript.
+
+\vspace{2em}
+Sincerely,
+
+Haneesh Kesari, Michael A. Monn, Kaushik Vijaykumar, and Sayaka Kochiyama
+
+
+%%%%%%%%%%%%%%%%
+
+
+\newpage
+
+\section*{List of Changes}
+\label{EditorialChange}
+
+{\bf Changes in response to Editorial requests}
+\begin{enumerate}[label=\textit{Ec.\arabic*}]
+
+%%%%%% TITLE %%%%%%
+\item \label{Title1} In response to editorial request (listed as comment \ref{e1c1} of this letter), we changed the title from "Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?" to "Lamellar Architectures in Stiff Biomaterials May Not Always Be Templates for Enhancing Toughness in Composites"
+%
+\item \label{Title2}
+In response to editorial request (listed as comment \ref{e1c2} of this letter),  we shortened the abstract to 150 words.
+
+%%%%%% MAIN TEXT %%%%%%
+
+\item \label{MainText1} In response to editorial request regarding section headings (listed as comments \ref{e2c1}, \ref{e2c4} and \ref{e2c5}  of this letter), we named and rearranged the section headings as listed below.
+\begin{enumerate}[label=\textit{\ref{MainText1}.\roman*}]
+    \item Added the heading "Introduction" to the first paragraph of the main text.
+    \item Modified section heading assignment (but not the paragraph structure itself) so that the "Results" section heading now appears before the "Recapitulation of the concept of fracture toughness" section and this section is treated as the first subsection of the "Results" section.
+    \item Assigned subsection heading "Summary of experiments" to the section that consisted the first part of "Results" section in the original manuscript.
+    \item Removed the section heading "Conclusion." The paragraph that was originally assigned the heading "Conclusion" is now part of "Discussion" section.
+\end{enumerate}
+
+\item \label{MainText2} In response to editorial request (listed as comment \ref{e2c1} of this letter),  we removed all numbering of sections.
+
+
+\item \label{MainText3} In response to editorial request (listed as comments \ref{e2c2} and \ref{e2c3} of this letter),  we added a paragraph in the Introduction section (third to last paragraph in the revised manuscript) discussing rationale and previous works that were originally mentioned in conjunction with the discussion of our current work.
+
+\item \label{MainText4} In response to editorial request (listed as comment \ref{e2c3} of this letter),  we summarized paragraphs 4 to 7 in the Introduction section of the original manuscript, which discussed our current work and provided references to previous work for context, to a single paragraph (final paragraph in the revised Introduction section) without any references to keep the discussion of our current work brief and concise.  This does not alter the main points we are trying to convey in the Introduction section.
+
+%\item \label{MainText5} In response to editorial request (listed as comment \ref{e2c5} of this letter), we added a subsection  titled "Summary of experiments" to the second paragraph of the Results section
+
+%%%%%% LANGUAGE AND STYLE %%%%%%
+
+\item \label{Language1} In response to editorial request (listed as comment \ref{e3c1} of this letter), we modified the Discussion section to incorporate listed points into text.
+
+\item \label{Language2} In response to editorial request (listed as comment \ref{e3c2} of this letter),  we removed speech marks from the following seven phrases: "single edge crack round bar bend," "pop-in," "interlayer," "effective," big-O," "phase field," "damage field."
+
+% \begin{enumerate}[label=\textit{\ref{Language2}.\roman*}]
+
+%     \item Line 110:  ``single edge crack round bar bend''
+%     \item Line 117: ``pop-in''
+%     \item Line 316: ``interlayer''
+%     \item Line 93: ``effective''
+%     \item Line 133: ``big-O''
+%     \item Line 155: ``phase field''
+%     \item Line 155: ``damage field''
+
+% \end{enumerate}
+
+\item \label{Language4} In response to editorial request (listed as comment \ref{e3c4} of this letter), we updated the basis vectors in the main text and in figures so that they are now typeset in bold without italics.
+
+% \begin{enumerate}[label=\textit{\ref{Ec09}.\roman*}]
+
+%     \item Line 86
+%     \item Line 94
+%     \item Line 101
+%     \item Line 106
+%     \item Figure 4(A), 4(B), 4(D), Figure 4 caption
+%     \item Line 122
+%     \item Figure 5(A), Figure 5 caption
+%     \item Line 149
+%     \item Line 150
+%     \item Line 259
+%     \item Figure 9(A), 9(B), 9(D), 9(F), and Figure 9 caption
+
+% \end{enumerate}
+
+\item \label{Language5} In response to editorial request (listed as comment \ref{e3c4} of this letter), we updated the typeset of $\pi$ in Equation (8) to roman so that it now appears as $\uppi$.
+
+\item \label{Language6} In response to editorial request (listed as comment \ref{e3c4} of this letter), we updated the following mathematical terms in the main text and in figures so that the subscripts are now typeset in roman: $r_\mathrm{n}$, $w_\mathrm{s}$, $F_\mathrm{c}$, $w_\mathrm{c}$, $U_\mathrm{F}$, $\Delta F_\mathrm{c}$, $1/C_\mathrm{F}$, $F_\mathrm{f}$, $w_\mathrm{f}$, $r_\mathrm{n}$, $w_\mathrm{0}$, $\gamma_\mathrm{WOF}$, $U_\mathrm{ef}$, $G_\mathrm{b}$, $G_\mathrm{I}$.
+
+% \begin{enumerate}[label=\textit{\ref{Ec11}.\roman*}]
+
+%     \item Figure 4(B): $r_\mathrm{n}$
+%     \item Line 101: $w_\mathrm{s}$
+%     \item Line 118: $F_\mathrm{c}$, $w_\mathrm{c}$
+%     \item Line 119: $F_\mathrm{c}$, $w_\mathrm{c}$
+%     \item Figure 5(C), 5(D), and caption: $F_\mathrm{c}$, $w_\mathrm{c}$, $U_\mathrm{F}$, $\Delta F_\mathrm{c}$, $1/C_\mathrm{F}$, $F_\mathrm{f}$, $w_\mathrm{f}$, $r_\mathrm{n}$, $w_\mathrm{0}$
+%     \item Equation (1): $w_\mathrm{s}$
+%     \item Equation (2): $w_\mathrm{s}$
+%     \item Line 152-157: $w_\mathrm{s}$
+%     \item Line 174-175: $r_\mathrm{n}$
+%     \item Line 177: $w_\mathrm{s}$
+%     \item Line 179: $w_\mathrm{s}$
+%     \item Line 181: $w_\mathrm{c}$
+%     \item Equation (4):$\gamma_\mathrm{WOF}$
+%     \item Line 215: $\gamma_\mathrm{WOF}$
+%     \item Line 216: $U_\mathrm{F}$
+%     \item Equation (5): $U_\mathrm{F}$
+%     \item Line 231: $\Delta F_\mathrm{c}$
+%     \item Line 233: $\Delta F_\mathrm{c}$, $F_\mathrm{c}$
+%     \item Equation (6): $U_\mathrm{F}$, $U_\mathrm{ef}$, $w_\mathrm{f}$
+%     \item Line 237: $w_\mathrm{f}$, $U_\mathrm{ef}$
+%     \item Line 247-248: $w_\mathrm{f}$, $F_\mathrm{f}$
+%     \item Line 249: $1/C_\mathrm{F}$
+%     \item Line 250: $w_\mathrm{f}$, $F_\mathrm{f}$
+%     \item Line 251-252: $U_\mathrm{ef}$
+%     \item Line 254: $U_\mathrm{ef}$, $w_\mathrm{f}$, $F_\mathrm{f}$
+%     \item Equation (7): $w_\mathrm{f}$, $F_\mathrm{f}$
+%     \item Line 262: $w_\mathrm{f}$, $F_\mathrm{f}$
+%     \item Line 323: $G_\mathrm{b}$, $G_\mathrm{I}$
+%     \item Figure 9(A), 9(B): $G_\mathrm{b}$, $G_\mathrm{I}$
+
+% \end{enumerate}
+
+%%%%%% METHODS AND DATA %%%%%%
+
+%\item \label{Methods1} In response to editorial request (listed as comment \ref{e4c1} of this letter), ensured that the Methods section contained sufficient details to reproduce experiments in combination with the subsection "Summary of experiments" under the Results section.
+
+\item \label{Methods2} In response to editorial request (listed as comments \ref{e4c2} and \ref{e4c3} of this letter), we added "Data Availability" section after the "Methods" section and before the "References" section, stating "The data that support the findings of this study are available from the corresponding author upon reasonable request.".
+
+%%%%% END NOTES %%%%%
+
+\item \label{EndNote1} In response to editorial request (listed as comment \ref{e5c1} of this letter), we removed the sentence "We thank the reviewers of this paper for their insightful comments that led us to connect the observed increase in fracture initiation toughness with decreasing notch length to previous models describing toughness enhancement in materials with layered architectures (Section 2.3)" from the "Acknowledgements" section in compliance with the guideline that it should not include thanks to referees.
+
+\item \label{EndNote2} In response to editorial request (listed as comment \ref{e5c2} of this letter), we added "Competing Interests" section after the "Author Contributions" section stating "The authors declare no competing interests."
+
+\item \label{EndNote3} In response to editorial request (listed as comment \ref{e5c3} of this letter), we modified the reference numbering so that the numbering is in the order they apper in the text, followed by the tables and figures.
+
+%%%%% DISPLAY ITEMS%%%%%
+
+\item \label{Display1} In response to editorial request (listed as comment \ref{e6c1} of this letter), we moved Table 2 in the original manuscript to Supplementary Information (now Supplementary Table 1) in order to limit the number of display items in the main text to 10.
+
+\item \label{Display2} In response to editorial request (listed as comment \ref{e6c3} of this letter), we modified the titles for Figure 3 and Figure 5 to summarize the whole figure more comprehensively.
+\begin{enumerate}[label=\textit{\ref{Display2}.\roman*}]
+    \item Modified Figure 3 title "Fracture toughness" in the original manuscript to "Fracture toughness and crack growth from a notch."
+    \item Modified Figure 5 title  "Data obtained from the bending tests" in the original manuscript to "Data obtained from the bending tests on \textit{Ea.} and \textit{Ta.} spicules."
+\end{enumerate}
+
+\item \label{Display3} In response to editorial request (listed as comment \ref{e6c4} of this letter),  we modified the title for Figure 8 from  "Comparison of the \textit{Ea.} spicule's toughness enhancement to the toughness enhancements of other SBMs with layered architectures" in the original manuscript to "Comparison of toughness enhancements in the \textit{Ea.} spicules and other SBMs with layered architectures" so that it is brief and does not occupy more than one line.
+
+\item \label{Display4} In response to editorial request (listed as comment \ref{e6c5} of this letter), we modified the title for Figure 6 "Micrographs of a fractured (A) \textit{Ea.} and (B) \textit{Ta.} spicule" to "Micrographs of fractured \textit{Ea.} and \textit{Ta.} spicules" to ensure it does not refer to specific panels.
+
+\item \label{Display5} In response to editorial request (listed as comment \ref{e6c6} of this letter), we ensured that our tables fit onto a single A4 portrait page with only one row of column titles.
+
+
+
+
+%\item \label{E20} \textcolor{blue}{Changed the typeset of Figure legend titles to bold.}
+
+%%%%%% SUPPLEMENTARY INFORMATION %%%%%%
+
+\item \label{Supplementary1} In response to editorial request (listed as comment \ref{e7c1} of this letter), we have ensured that the Supplementary Information file is ready for publication as a separate PDF file.
+
+\item \label{Supplementary2} In response to editorial request (listed as comment \ref{e7c2} of this letter), we added a title page to the Supplementary Information file and ensured that the title is indeed the updated title "Lamellar Architectures in Stiff Biomaterials May Not Always Be Templates for Enhancing Toughness in Composites."
+
+\item \label{Supplementary3} In response to editorial request (listed as comment \ref{e7c3} of this letter), we relabeled section headings in the Supplementary Information in compliance with the provided guideline.
+\begin{enumerate}[label=\textit{\ref{Supplementary3}.\roman*}]
+
+    \item "S1 Derivation of the equation for fracture initiation toughness" in the original manuscript is renamed to "Supplementary Note 1."
+     \item "S2 The effect of moisture on the bending behavior of \textit{E. aspergillum} spicules" in the original manuscript is renamed to "Supplementary Methods."
+    \item "S3 Details of the computational mechanics model used to compute fracture initiation toughness" in the original manuscript is renamed to "Supplementary Note 2."
+    \item "S4 Details of the variational fracture method" in the original manuscript is renamed to "Supplementary Note 3."
+
+
+\end{enumerate}
+\item \label{Supplementary4} In response to editorial request (listed as comment \ref{e7c3} of this letter), we removed the following subsection headings found in the original Supplementary Information.
+\begin{enumerate}[label=\textit{\ref{Supplementary4}.\roman*}]
+
+    \item "S3.1 Model geometry"
+    \item "S3.2 Boundary conditions"
+    \item "S3.3 Constitutive model"
+    \item "S3.4 Equilibrium equations and solutions"
+    \item "S3.5 Calculations of fracture initiation toughness using the computational mechanics model"
+    \item "S4.1 Variational fracture theory"
+    \item "S4.2 Regularized variational fracture model for interfaces"
+
+\end{enumerate}
+
+
+\item \label{Supplementary5} In response to editorial request (listed as comments \ref{e7c4}, \ref{e7c5}, and \ref{e7c7} of this letter), we updated the format of reference to items and equations in the Supplementary Information in accordance with the changes listed as \ref{Supplementary3}, \ref{Supplementary4}, and
+\ref{Supplementary6}.
+
+% The locations updated in the revised manuscript are listed below.
+
+% \begin{enumerate}[label=\textit{\ref{Supplementary4}.\roman*}]
+
+%     \item Line 70
+%     \item Table 1 footnote
+%     \item Line 85
+%     \item Line 107
+%     \item Line 142
+%     \item Line 149
+%     \item Line 167
+%     \item Line 175
+%     \item Line 240
+%     \item Line 254
+%     \item Line 264
+%     \item Figure 8(B) legend
+%     \item Line 303
+%     \item Line 370
+%     \item Line 372
+%     \item Line 8 in the Supplementary Information
+%     \item Line 11 in the Supplementary Information
+
+% \end{enumerate}
+
+
+\item \label{Supplementary6} In response to editorial request (listed as comment \ref{e7c6} of this letter), we modified the labeling of equations in the Supplementary Information.
+% \begin{enumerate}[label=\textit{\ref{Supplementary6}.\roman*}]
+
+%     \item Relabelled (S1)-(S5) to (1)-(5).
+%     \item Relabelled (S6) to (26).
+%     \item Relabelled (S7)-(S26c) to (6)-(25c).
+
+% \end{enumerate}
+
+\item \label{Supplementary7} In response to editorial request (listed as comment \ref{e7c8} of this letter), we moved the Supplementary References section to the end of the Supplementary Information file and ensured that the references that appear in the Supplementary Information file are self-contained.
+
+
+
+
+
+
+%
+\end{enumerate}
+
+\clearpage
+
+\section*{Response to comments from the editors and reviewers}
+
+\subsection*{Reviewer 1}
+\begin{enumerate}[label=\textit{1.\arabic*},wide, labelwidth=!, labelindent=0pt]
+
+\item \label{e1c1} {\bf ``The authors develop the equations of rigid body acceleration from the perspective typically used to study continuum mechanics. They arrive at the standard formulation, in a form directly derivable from the form in the standard text by Gurtin, Fried, and Anand. This form is identical in all ways to the standard 3D form available in an dynamics textbook (e.g. Ginsberg's Advanced Dynamics or Ginsberg and Genin's Dynamics). The approach to developing this very standard framework is slightly different from that used in other treatments, and is publishable. However, this reviewer feels that JMPS, which is focused on mechanics of deformable systems, is not the right place to publish a different approach to deriving well-known rigid body dynamics equations.
+''}
+
+In response to this comment we have made one change, which is listed as \ref{Title1} in the List of Changes (LoC). We modified the title "Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?" to "Lamellar Architectures in Stiff Biomaterials May Not Always Be Templates for Enhancing Toughness in Composites"
+
+\item \label{e1c2} {\bf ``The authors then apply this to estimating acceleration fields in rigid body impact of an ellipsoid.  The simulation is well done, but not of a nature appropriate to JMPS in this reviewer's opinion.
+
+The upshot is that four triaxial accelerometers can be used to estimate head accelerations. However, this is well known.  Commercial devices exist for this (e.g. the Hybrid III dummy \url{https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/padi50naah_v1.pdf}, with frameworks fo this well established \url{https://doi.org/10.1115/1.2801281}). Although triaxial accelerometers are not commonly used, frameworks for them are well established (e.g. \url{https://doi.org/10.1016/j.mechatronics.2013.04.003}).  These have been used for measuring head accelerations as well (e.g. \url{DOI:10.1249/01.MSS.0000078933.84527.AE}). This aspect of the novelty of the work is relatively low in this reviewer's opinion.
+
+In summary, this reviewer views the contribution of this work to the field of rigid body mechanics to be the re-derivation of a well-known result from an interesting perspective. The paper contains a well-executed simulation of rigid body impact of an ellipsoid. The reviewer feels that these contributions, while they do have merit, are not appropriate for publication in JMPS.
+
+''}
+
+In response to this comment we have made one change, which is listed as \ref{Title2} in LoC. We removed and rephrased some sentences to keep the abstract within the 150 word limit.
+
+\end{enumerate}
+
+\subsection*{Reviewer 2}
+\begin{enumerate}[label=\textit{2.\arabic*},wide, labelwidth=!, labelindent=0pt]
+
+\item \label{e2c1}{\bf ``The authors present an algorithm for determining the acceleration field of a rigid body using measurements from four tri-axial accelerometers, which is of importance for the biomechanical study of mild Traumatic Brain Injury.  The proposed accelerometer only (AO) algorithm does not involve any numerical differentiation of data, which greatly circumvents measurement noise. This may help better  understanding of the mechanics of mild brain injuries, and may find other applications in biomechanics, navigation and control.
+''}
+
+In response to this comment we have made several changes, which are listed as \ref{MainText1} and \ref{MainText2} in LoC. We added the heading "Introduction" to the first paragraph of the main text and "Results" after the fifth paragraph. We removed the heading "Conclusion," and removed all numbering of sections.
+
+\end{enumerate}
+
+
+
+\newpage
+\setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{fancy}
+\phantom{x}
+\vspace{4em}
+% \textbf{Author response letter to Reviewers}
+
+Regarding: Point-by-point response to issues raised by referees  (manuscript NCOMMS-18-11797493).
+%hk done
+
+\vspace{3em}
+Dear Editors and Reviewers,
+%hk done
+\vspace{1em}
+
+We thank you for your very valuable feedback. In response to your feedback, we have made the revisions listed in the section \textit{List Of Changes} (\textit{LoC}), which can be found on  page \pageref{LoCpage} of this response letter. We  provide a point-by-point response to the Reviewers' comments in the following pages. Our responses to Reviewer \#1's, Reviewer \#2's, and Reviewer \#4's comments can be found on pages \pageref{rev1}, \pageref{rev2}, and \pageref{rev4}, respectively, of this response letter. Through these changes and our responses to your comments, we hope that we have addressed all of your concerns.
+
+We thank you for your consideration of our revised manuscript.
+
+\vspace{2em}
+Sincerely,
+
+Michael A. Monn, Kaushik Vijaykumar, Sayaka Kochiyama, and Haneesh Kesari
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{plain}
+\newgeometry{margin=2.5 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{List of Changes}
+\label{LoCpage}
+
+{\bf Changes in response to Reviewer criticisms}
+\begin{enumerate}[label=\textit{Mc.\arabic*}]
+%
+\item \label{Mc01} In response to Reviewer \#4's comment (listed as comment \ref{r4c2} of this letter) regarding the sentence ``Understanding the link between layered architectures and toughness could
+help to identify new ways to improve the toughness of engineering composites'' in the abstract, we modified the sentence per the Reviewer's suggestion so that it now reads ``Understanding the link between organic-inorganic layered architectures and toughness
+could help to identify new ways to improve the toughness of biomimetic engineering composites.''
+%
+\item \label{Mc02} In response to Reviewer \#4's comment (listed as comment \ref{r4c3} of this letter) regarding the composition of the mineralized layers in the spicules, we have modified the second paragraph of the introduction so that it discusses the role of the organic matrix in silica mineralization and references past work that describes the composition of the silica and the origin of the organic matrix.
+\end{enumerate}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Response to Reviewer \#1's comments}
+\label{rev1}
+
+\begin{enumerate}[label=\textit{1.\arabic*},wide, labelwidth=!, labelindent=0pt]
+\item \label{r1c1} {\bf ``The authors have significantly improved their paper, especially, by presenting additional experimental data describing the fracture behavior of spicules with small initial crack lengths. There remains a single problem in the paper: The authors do not discriminate between fracture initiation toughness Jc and crack growth resistance R.
+Everything is correct what the authors write in Point 1.8 in their Response to the Reviewer 1 comments, but it applies for homogeneous, elastic materials, only. Note that, for homogeneous elastic-plastic materials, the crack growth resistance R of a material can exceed Jc by several orders of magnitude. For inhomogeneous elastic materials, the crack driving force does not only depend on the crack length a and the load F, but is influenced by the material inhomogeneity. Then Jc can become different from R, if Jc is evaluated in the same way as for a homogeneous material. The authors may or may not consider this point.''}
+
+We are sincerely grateful to the Reviewer for giving our work another look.
+
+
+We thank the Reviewer for pointing out the importance of including shorter notch lengths when measuring the initiation toughness of the \EA spicules.
+
+
+% We thank the Reviewer for pointing out the importance of measuring the initiation toughness of the \EA spicules with shorter notch lengths.
+
+% \item \label{r1c2} {\bf ``There remains a single problem in the paper: The authors do not discriminate between fracture initiation toughness Jc and crack growth resistance R.''}
+
+% We disagree with the reviewer. In the subsection of Results, titled ``Recapitulation of the concept of fracture toughness'' we first provide a definition for the crack growth resistance, $R$, and point out that it can vary with the length of the crack, $\Delta a$. We then define the fracture initiation toughness as ``The value of $R$ when a crack first starts growing, $R(0)$''. From this section we clearly identify the difference between crack growth resistance, $R$, and the initiation toughness, $R(0)$.
+
+% \item \label{r1c3} {\bf ``Everything is correct what the authors write in Point 1.8 in their Response to the Reviewer 1 comments, but it applies for homogeneous, elastic materials, only. ''}
+
+% The equations given in Point 1.8 of the Response to Reviewer 1 comments simply define the energetic criterion for crack growth (Griffith's criterion) and are independent of material constitutive behavior or homogeneity so long as the material is one in which "cracks remain essentially sharp but may activate secondary energy-absorbing sources within the near field.''\cite{lawn1993fracture1} Regardless of whether the material is homogeneous or heterogeneous, the necessary criterion for crack growth is that the energy release rate, or change in the system's potential energy with an increment in crack length, meets or exceeds the material's crack growth resistance. For example, see Gross and Seelig Section 4.6.4 \cite{gross2017fracture1}, which states ``The energy balance (4.83) is also valid when large inelastic regions are present. In this case, however, the entire plastic region cannot be regarded as the process zone. It is then necessary to separate clearly the energy needed for the fracture process ($\dot{\Gamma}$) and that consumed by inelastic deformations outside the process zone.'', or Lawn, which states that ``In principle, there seems nothing to preclude extension of the energy balance concept to nonlinear crack systems. However, nonlinear problems are notoriously difficult to handle conceptually and mathematically. With this in mind we limit ourselves to the most rudimentary treatments. We begin with the so-called small-scale zone concept, incorporating dissipative work terms into a composite fracture-surface energy.''\cite{lawn1993fracture1} The use of the energy release rate as a criterion for crack growth in composite/heterogeneous materials is also discussed in Anderson Section 6.2 \cite{anderson2005fracture1}.
+
+% \item \label{r1c4} {\bf ``Note that, for homogeneous elastic-plastic materials, the crack growth resistance R of a material can exceed Jc by several orders of magnitude.''}
+
+% We agree with the Reviewer.
+
+% \item \label{r1c5} {\bf ``For inhomogeneous elastic materials, the crack driving force does not only depend on the crack length a and the load F, but is influenced by the material inhomogeneity. ''}
+
+% We agree with the Reviewer.
+
+% \item \label{r1c6} {\bf ``Then Jc can become different from R, if Jc is evaluated in the same way as for a homogeneous material. The authors may or may not consider this point.''}
+
+% In Supplementary Note 2, we state that ``While the \EA spicules are clearly not homogeneous, we model them as homogeneous linear elastic solids as well. Because of this modeling assumption, the values of $R(0)$ that we obtain for the \EA spicules should be considered effective fracture initiation toughness.''
+
+\end{enumerate}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Response to Reviewer \#2's comments}
+\label{rev2}
+
+\begin{enumerate}[label=\textit{1.\arabic*},wide, labelwidth=!, labelindent=0pt]
+\item \label{r2c1} {\bf ``In this thorough revision, the authors have brought forward additional analyses and clarifications on several points I had raised including the need to validate the Regularized Variational Fracture Theory. I appreciate the attempt to reproduce experimentally available data despite the unknown values of certain parameters. The qualitative agreement of the first example as well as the quantitative analysis comparing results with other papers are sufficient for the purpose, i.e. the RVFT is a dependable tool for gaining qualitative insight. I look forward to reading the paper under preparation for JMPS (I do agree on the choice to have a dedicated paper on this), where I suggest a quantitative agreement with controlled experiments and specimens with no dependence on other papers. This could add the quantitative character and provide accuracy values for use by the scientific community and beyond.
+I appreciate also the detailed description of the limitations of the RVFT (on specimen under tension versus compression stress states) and the relevant paragraphs included in the revision. The addition of the statistics on all fronts provide the necessary context to the various sets of data populations therein included.
+I thus support the publication of this article.''}
+
+We thank the Reviewer for their in-depth review of our work. When preparing the JMPS paper containing details and validation of the RVFT method we will do our utmost to make a quantitative comparison ``with controlled experiments and specimens with no dependence on other papers.''
+
+% \item \label{r2c2} {\bf ``The qualitative agreement of the first example as well as the quantitative analysis comparing results with other papers are sufficient for the purpose, i.e. the RVFT is a dependable tool for gaining qualitative insight. ''}
+
+% We are glad that the validation we provided supports our use of RVFT in the manuscript.
+
+% \item \label{r2c3} {\bf ``I look forward to reading the paper under preparation for JMPS (I do agree on the choice to have a dedicated paper on this), where I suggest a quantitative agreement with controlled experiments and specimens with no dependence on other papers. This could add the quantitative character and provide accuracy values for use by the scientific community and beyond.''}
+
+% We agree with the reviewer that a quantitative comparison of RVFT with fracture experiments is important for showing the true predictive potential of this method.
+
+% \item \label{r2c4} {\bf ``I appreciate also the detailed description of the limitations of the RVFT (on specimen under tension versus compression stress states) and the relevant paragraphs included in the revision. ''}
+
+% We agree that the discussion of the limitations of RVFT helps to support our use of it in this manuscript and thank the Reviewer for this suggestion.
+
+% \item \label{r2c5} {\bf ``The addition of the statistics on all fronts provide the necessary context to the various sets of data populations therein included.''}
+
+% We thank the Reviewer for having suggested these revisions and agree that they provide better context for the data presented.
+
+% \item \label{r2c6} {\bf ``I thus support the publication of this article.''}
+
+% We appreciate the Reviewer's consideration of our responses and support for our revised manuscript.
+
+\end{enumerate}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Response to Reviewer \#4's comments}
+\label{rev4}
+
+\begin{enumerate}[label=\textit{1.\arabic*},wide, labelwidth=!, labelindent=0pt]
+\item \label{r4c1} {\bf ``After the detailed read of the revised manuscript as well as the rebuttal letter, I take the liberty to recommend this excellent piece of experimental work for publication after minor revision. The authors have ``fought'' exemplary against critical comments from the reviewers.''}
+
+We thank the Reviewer for their consideration of our manuscript, revisions, and appeal.
+
+\item \label{r4c2} {\bf ``You wrote: `Understanding the link between layered architectures and toughness could help to identify new ways to improve the toughness of engineering composites'.
+This is a rather too strong statement, suggesting that the toughness of materials is basically linked only to the layered architecture. Please note that the intercalation of the organics between silica layers is crucial for the mechanical properties of spicules. Comprehensive analysis of the interplay between organics and silica layered architecture will result in a more complete understanding of these structures and will lead to conscious biomimicry. I recommend changing this sentence as follow: `Understanding the link between organic-inorganic layered architectures and toughness could help to identify new ways to improve the toughness of biomimetically engineering composites.'''}
+
+We agree with the Reviewer. Therefore, in response to the above comment we have made one change, which is listed as \ref{Mc01} in the LoC. Through change \ref{Mc01} we modified the sentence in our abstract, quoted in the comment above, in the way suggested by the Reviewer  so that it now reads ``Understanding the link between organic-inorganic layered architectures and toughness could help to identify new ways to improve the toughness of biomimetic engineering composites.''
+
+\item \label{r4c3} {\bf ``You wrote: Page 2 lines 18--20: Both the core and the layers are composed of silica and adjacent silica layers are separated by a thin (5--10 nm [17]) organic interlayer.
+Here, it is strongly recommended to mention what kind of organic templates are intercalated between layered structures in spicules of glass sponges? It seems you have overlooked corresponding information listed below. This will help you as non-biologists to better understand the origin and localization of organic matrices within spicules.
+%
+Fig 3f, Fig 4f in: Ehrlich H., et al (2006) A modern approach to demineralisation of spicules in the glass sponges (Hexactinellida: Porifera) for the purpose of extraction and examination of the protein matrix. Russian Journal of Marine Biology 32(3):186--193.
+%
+Fig.2A, Fig.3 and 5 in: Ehrlich H et al (2008) Nanostructural organisation of naturally occurring composites: Part I. Silica-collagen-based biocomposites. Journal of Nanomaterials 2008, Article ID 623838, 8 pages, doi: 10.1155/2008/670235).
+%
+Supplementary Fig 10 in: Ehrlich H., et al (2010) Mineralization of the meter-long biosilica structures of glass sponges is template on hydroxylated collagen. Nature Chemistry 2:1084--1088.
+%
+Fig.2 + SI in: Ehrlich H et al (2016) Supercontinuum generation in naturally occurring glass sponges spicules. Advanced Optical Materials 4(10):1608--1613.
+%
+Fig.14 and 25 in: Wysokowski M., Jesionowski T., Ehrlich H. (2018) Biosilica as source for inspiration in biological materials science. American Mineralogist 103(5):665--691.
+%
+These papers must be discussed and cited in the final revision.''}
+
+We thank the Reviewer for pointing us to this important and relevant body of literature. We now discuss and cite the papers mentioned by the Reviewer in the revised manuscript.
+
+Specifically, we have modified the second paragraph of the introduction to include greater detail on the type of organic templates found in the layers of glass sponges. This change is listed as  \ref{Mc02} in the \textit{LoC}.  Through change \ref{Mc02}, we  discuss and cite the above mentioned works as they relate to the composition of the silica layers and the function of the organic matrix as a template for silica mineralization.
+%
+% We discuss the origin and localization of the organic matrix within the spicules.
+%
+The modified part of  the second paragraph in the introduction in the final revised manuscript is as follows:
+
+``Images of spicules from other Hexactinellid species that are partially dissolved in alkali solution reveal that the silica layers also contain a fibrillar organic matrix similar to the interlayers \cite{ehrlich2006modern, ehrlich2008nanostructural, ehrlich2010mineralization}. Thus, this organic matrix serves both as a scaffold within the layers and a glue between them \cite{ehrlich2016supercontinuum}.
+%
+% In \EA spicules, the organic matrix is composed primary of the protein glassin \cite{wysokowski2018biosilica, shimizu2015glassin}.
+%
+It is believed that this organic matrix acts as a template for cell-assisted silica mineralization during the spicule's growth process \cite{ehrlich2006modern, ehrlich2008nanostructural, ehrlich2010mineralization, wysokowski2018biosilica}. However, little is known about the growth process of \EA spicules \cite{wysokowski2018biosilica}.''
+
+\end{enumerate}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,21 @@
+\begin{table}
+\centering
+\ra{1.25}
+\begin{threeparttable}[t]
+\begin{tabular}{ccccc}
+\toprule
+Species & No. specimens & $L$ [$\mu$m] & $D$ [$\mu$m] & $a$ [$\mu$m]\\
+\midrule
+\textit{E. aspergillum} & 35 & 799.25$\pm$6.35 & 41.42$\pm$2.16 & 12.92$\pm$1.30\\
+\textit{T. aurantia} & 26 & 725.86$\pm$18.36 & 32.28$\pm$1.07 & 6.96$\pm$0.80\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a)] {\footnotesize see Supplementary Tables 2 and 3 for details of the geometry of individual \EA and \TA specimens.}
+\end{tablenotes}
+\end{threeparttable}
+\caption{\textbf{Summary of specimen geometry for \EA and \TA spicules}. Values for diameter ($D$), span ($L$) and notch length ($a$) listed as mean$\pm$standard error of measurement (see Figure \ref{fig:notch}).}
+\label{tab:spiculegeom}
+\end{table}
+\efloatseparator
+ 

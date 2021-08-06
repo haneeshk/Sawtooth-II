@@ -1,0 +1,944 @@
+\documentclass[12pt,onecolumn]{article}
+
+
+% %%%%%%%%%%%%%%%%%%%%% PACKAGES%%%%%%%%%%%%%%%%%%%%%
+ %STANDARD
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+\usepackage{graphics,graphicx,wrapfig}
+\usepackage{enumerate}
+\usepackage[font=footnotesize, labelfont={bf},labelsep=period]{caption}
+\usepackage{bm}
+\usepackage[colorlinks=false,citecolor=black, linkcolor=red]{hyperref}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathptmx}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+\usepackage{threeparttable}
+\usepackage{tabto}
+
+\usepackage[letterpaper, margin=2 cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{16}{16}\selectfont}
+
+% \pagenumbering{gobble}
+\usepackage{setspace}
+% \usepackage[nolists,noheads,nomarkers]{endfloat}
+
+\usepackage[superscript,biblabel]{cite}
+\makeatletter \renewcommand{\@citess}[1]{\textsuperscript{\,[#1]}} \makeatother
+\makeatletter \renewcommand{\@biblabel}[1]{[#1]} \makeatother
+
+\usepackage{bibunits}
+% \bibliographystyle{AdvFunctMater}
+% \defaultbibliographystyle{AdvFunctMater}
+\bibliographystyle{naturemag_noURL}
+\defaultbibliographystyle{naturemag_noURL}
+
+\usepackage{authblk}
+\renewcommand\Affilfont{\itshape\small}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{lineno}
+\setlength\linenumbersep{8pt}
+\renewcommand\linenumberfont{\normalfont\tiny\sffamily\color{gray}}
+
+%%TRACK CHANGES
+% \usepackage{showlabels}
+
+%CUSTOM COMMANDS
+\newcommand{\norm}[1]{\ensuremath \lVert #1 \rVert}
+\newcommand{\bs}[1]{\ensuremath{\mathbf{#1}}}
+
+\newcommand{\pD}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\D}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\dx}[1]{\,\mathrm{d} #1}
+
+\newcommand{\ex}{{\bm{\hat{e}}}_1}
+\newcommand{\ey}{{\bm{\hat{e}}}_2}
+\newcommand{\ez}{{\bm{\hat{e}}}_3}
+\newcommand{\ei}{{\bm{\hat{e}}}_i}
+\newcommand{\ej}{{\bm{\hat{e}}}_j}
+\newcommand{\er}{{\bm{\hat{e}}}_r}
+\newcommand{\et}{{\bm{\hat{e}}}_\theta}
+\newcommand{\ep}{{\bm{\hat{e}}}_\phi}
+
+\usepackage{xspace}
+\newcommand{\TA}{\textit{Ta.\@}\xspace}
+\newcommand{\EA}{\textit{Ea.\@}\xspace}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%% FRONT MATTER%%%%%%%%%%%%%%%%%%%%%
+%%%% TITLE %%%%
+\title{Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?}
+
+%%%% AUTHOR INFO %%%%
+\author[1]{Michael A. Monn}
+%
+\author[1]{Kaushik Vijaykumar}
+%
+\author[1]{Haneesh Kesari$^*$}
+%
+ \affil[1]{School of Engineering, Brown University, Providence, RI, USA}
+ \date{}
+
+\begin{document}
+% DOI: 10.1002/XXX
+% \paragraph{Article type:} Full Paper
+% \part*{Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?}
+% \textit{Michael A. Monn, Kaushik Vijaykumar, and Haneesh Kesari$^*$}
+% \\
+% \\
+% Dr. M. A. Monn, K. Vijaykumar, Prof. H. Kesari
+% \\
+% Brown University School of Engineering
+% \\
+% 184 Hope St, Providence, RI 02139, USA
+% \\
+% E-mail: haneesh\_kesari@brown.edu
+% \\
+% \\
+
+\maketitle
+% \doublespacing
+%%%% KEYWORDS %%%%
+\emph{Keywords:}
+structure-property relationships, 
+% structural biological material, 
+% biological composite, 
+\textit{Euplectella aspergillum}, 
+% \textit{Tethya aurantia}, 
+fracture toughness, 
+% crack growth resistance, 
+$R$-curves, 
+% work of fracture, 
+% fracture initiation toughness,
+biological composites
+% biomimetics
+\\
+%%%% ABSTRACT %%%%
+{
+\singlespacing\small \bf
+Some stiff biological materials, such as shells and bones, have surprisingly high fracture toughness compared to their brittle ceramic constituents. These materials are heterogeneous and consist of layers of ceramic phases separated by thin organic interlayers. Understanding the link between layered architectures and toughness could help to identify new ways to improve the toughness of engineering composites. We study one instance of the layered architecture found in the skeletal elements---called spicules---of the marine sponge \textit{Euplectella aspergillum}. The spicules contain cylindrical layers composed of silica. We cut micrometer-size notches in the spicules and perform flexural tests on them to measure their fracture initiation toughness and average crack growth resistance. Despite sharing a common architectural motif with many tough biological materials,  we find that the \textit{E. aspergillum} spicule's layered architecture provides relatively little toughness enhancement. We investigate the reasons underlying this lack of toughness enhancement using computational fracture mechanics simulations. The combination of mechanical characterization and computational mechanics simulations presented here provides a framework for developing a more complete understanding of how toughness enhancing mechanisms can be induced or suppressed by changing the geometry of a layered architecture.
+}
+
+%%%%%%%%%%%%%%%%%%%%% MAIN TEXT%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linenumbers
+\begin{bibunit}
+\doublespacing
+%%%%%%%%%%%%%%%%%%%%%
+% \section{Introduction}
+Despite being primarily composed of brittle ceramics, some stiff biological materials (SBMs), such as bones and shells, are remarkably tough~\cite{ritchie2011conflicts, wegst2015bioinspired, wang2001, gao2017mass}. For example, nacre---the iridescent material found in mollusk shells---is composed of $>$95\% aragonite (a brittle, calcium carbonate mineral) by volume yet it has a specific fracture initiation toughness on par with nylon and some iron alloys \cite{gao2017mass}. These tough SBMs are often heterogeneous and are composed of alternating layers of ceramic and organic materials (see {\bf Figure \ref{fig:arch}}). The arrangements of these layers, which we refer to as layered architectures, are thought to be responsible for the toughness enhancements observed in these SBMs \cite{mayer2011new}. There is currently significant interest in understanding the connections between layered architectures and toughness enhancements in SBMs~\cite{mayer2011new,mayer2005rigid,rabiei2010failure, kolednik2011bioinspired} because this understanding could aid in the development of new, tough engineering materials~\cite{munch2008tough,karambelas2013strombus,gao2017mass}.
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureArchEx/Figure1_V3.pdf}
+			\caption{Examples of the layered architecture in SBMs. (A) Skeleton of a \textit{Euplectella aspergillum} sponge (modified from \cite{monn2015new} copyright 2015, The National Academy of Sciences). (B) Concentric silica layers make up the cylindrical layered architecture of anchor spicules from \textit{E. aspergillum} (modified from \cite{monn2015new} copyright 2015, The National Academy of Sciences). (C) The iridescent shell of \textit{Haliotis rufescens} (courtesy of John Varner). (D) The brick and mortar layered architecture of nacre consisting of staggered aragonite tablets (modified with permission from \cite{rabiei2012nacre} copyright 2012, the Royal Society of Chemistry). (E) The shell of the queen conch (\textit{Strombus gigas}) (courtesy of John Varner). (F) The crossed-layered architecture of the \textit{S. gigas} shell, which consists of layers of aragonite (modified with permission from \cite{osuna2014shell} copyright 2014, Elsevier).}
+			\label{fig:arch}
+			\end{figure}
+
+A number of SBMs, including nacre and bone, have served as models for the seminal research on understanding these connections \cite{jackson1988,currey1977}. Recently, the anchor spicules of the marine sponge \textit{Euplectella aspergillum} (\EA) have been added this group of model SBMs \cite{mayer2005rigid,mayer2011new,kolednik2011bioinspired,walter2007mechanisms}. The anchor spicules are hair-like fibers that attach \EA to the soft sediment of the sea floor where it lives (see {\bf Figure~\ref{fig:EATA}} (A)--(B)) \cite{weaver2007hierarchical}. Each of the thousands of anchor spicules in a \EA sponge is approximately 10 cm long and 50 $\mu$m in diameter. Viewed in cross-section, an anchor spicule consists of a solid cylindrical core surrounded by $\approx$25 concentric, cylindrical layers (see Figure~\ref{fig:arch} (B) and \ref{fig:EATA} (C))~\cite{aizenberg2005skeleton,weaver2007hierarchical,monn2015new}. Both the core and the layers are composed of silica and adjacent silica layers are separated by a thin ($\approx$5--10 nm~\cite{weaver2007hierarchical}) organic interlayer.
+Similar cylindrical layered architectures have also been found in spicules from a number of related sponge species~\cite{sarikaya2001biomimetic,weaver2010unifying,levi1989remarkably,wang2010silica}.
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureEATA/Figure2_V2.pdf}
+			\caption{The skeletons and spicules of \EA and \TA sponges. (A) The skeleton of the \EA sponge (modified from \cite{monn2015new} copyright, the National Academy of Sciences). (B) The anchor spicules that fasten the sponge to the seafloor (modified from \cite{monn2015new} copyright, the National Academy of Sciences). (C) The broken end of an \EA anchor spicule that was fracture in three-point bending showing its layered architecture (modified from \cite{monn2017enhanced} copyright 2017, Elsevier). (D) A \TA sponge (image courtesy of Steve Lonhart/NOAA MBNMS). (E) A toothpick-like spicule found within the \TA sponge (reproduced from \cite{monn2017new} under the Creative Commons 4.0 BY license). (F) The exposed surface of a \TA spicule that was fractured in the same way as the \EA spicule shown in (C) showing that it does not contain a layered architecture (modified from \cite{monn2017enhanced} copyright 2017, Elsevier).}
+			\label{fig:EATA}
+			\end{figure}
+
+Many previous studies of \EA anchor spicules suggest that like the layered architectures of nacre and other tough SBMs, the spicule's cylindrical layered architecture also enhances fracture toughness \cite{mayer2005rigid,mayer2011new,walter2007mechanisms,kolednik2011bioinspired}. None of these studies, however, provide direct measurements of the \EA spicule's fracture toughness, nor by other means do they quantify how much the architecture enhances the spicule's toughness compared to that of its constituent silica. These measurements and comparison are critical for determining whether the \EA spicules should be used as a template for bioinspired materials with enhanced toughness. 
+
+We measured the \EA spicule's fracture toughness by cutting micrometer-size notches in the spicules using a focused ion beam and performing flexural tests on them (see Section \ref{sec:fdresp}). The notches ranged in length from approximately 20\% to 60\% of the spicule's diameter. During the flexural test, a notched spicule was bent until a crack grew from the notch and fractured it. We measured the force applied to a spicule during the test and the lateral deflection of its cross-section at the location the load was applied. Using these data, we computed the spicule's fracture toughness (see Sections \ref{sec:Gc} and \ref{sec:avgR}).
+
+To quantify the toughness enhancement provided by the \EA spicule's architecture, we compared its fracture toughness to the fracture toughness of spicules from a related sponge, \textit{Tethya aurantia} (\TA) (see Figure \ref{fig:EATA} (D)--(F)). The \TA spicules have a similar chemical composition and bonding structure to the \EA spicules~\cite{weaver2010unifying}, but do not possess a layered architecture (see Figure \ref{fig:EATA} (F))~\cite{monn2017new}. They are $\approx$2 mm long, $\approx$35 $\mu$m in diameter and have a needle-like shape. That is, they are thickest at the midpoint along their length and taper to become thinner toward their ends (see Figure \ref{fig:EATA} (E)). We measured the \TA spicules' fracture toughness using the same type of notched flexural test that we performed on the \EA spicules (see Section \ref{sec:res}). 
+
+We found that the toughness enhancement provided by the \EA spicule's architecture is much smaller than that provided by architectures seen in prototypically tough SBMs, like nacre and bone (see Section \ref{sec:Rcomp}). While these tough SBMs also possess layered architectures, the layers in these materials are flat rather than cylindrical/curved (see Figure \ref{fig:arch}). 
+
+We investigated the difference in the toughness enhancements provided by the cylindrical and flat layered architectures using computational mechanics simulations (see Section \ref{sec:discussion}). In the simulations we used a regularized variational fracture method \cite{bourdin2000numerical} to predict how both cylindrical and flat layers affect crack growth. We compared the mechanical response and crack pattern in a specimen containing two cylindrical layers to a specimen containing two flat layers. We found that while crack arrest and re-nucleation appears to be the dominant toughening mechanism in the flat layered architecture, it does not manifest to the same extent in the cylindrical layered architecture. Thus, the curvature of the \EA spicules' layers could fundamentally change the toughening mechanisms operating within them compared to SBMs with flat layered architectures.
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Recapitulation of the concept of fracture toughness}
+\label{sec:tdef}
+
+Roughly speaking, fracture toughness---also known as crack growth resistance, $R$---is the amount of energy that a crack consumes to grow its area by a unit amount. If the energy consumed does not depend on the geometries of the crack, the crack increment, the specimen, and the specimen's architecture then $R$ is considered to be a material property. However, in SBMs the value of $R$ can depend on the length that the crack has grown, $\Delta a$ (see {\bf Figure~\ref{fig:Rcurve}} (B)--(C)). The value of $R$ when a crack first starts growing, $R(0)$, is known as the fracture initiation toughness. If the value of $R$ increases with $\Delta a$, then the material is said to have a rising $R$ curve (see e.g., Figure~\ref{fig:Rcurve} (C)). In this case, as the crack grows the material becomes more resistant to crack growth. Several SBMs like nacre and bone  \cite{barthelat2007experimental,rabiei2010failure,nalla2005mechanistic,launey2009mechanistic} as well as in synthetic materials with architectures inspired by these SBMs (see Figure \ref{fig:Rcurve} (C)) \cite{ritchie2011conflicts} display rising $R$ curves. In these materials, the rise in $R$ is caused by toughening mechanisms that become activated as a crack grows and interacts with the layered architecture.
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureRcurve/Figure3a_V5.pdf}
+			\caption{Fracture toughness. (A) Geometry of a fracture test specimen with a notch cut in it. A cross-sectional view shows the notch length, $a$, and ligament area, $A^-$. (B) When loaded in flexure, a crack grows from the notch root. The crack length, $\Delta a$ is shown in the corresponding cross-sectional view. (C) Crack growth resistance curves of nacre, nacre-inspired composites made of aluminum oxide tablets, and monolithic aluminum oxide. The crack growth resistance is given here in terms of the $J$-integral (modified with permission from \cite{ritchie2011conflicts} copyright Nature Publishing Group).}
+			\label{fig:Rcurve}
+			\end{figure}
+
+We measured $R(0)$ and $\left< R \right>$---i.e., the average value of $R$ (see Section \ref{sec:avgR} for details)---for the \EA anchor spicules and the \TA spicules (see Section \ref{sec:res}). By comparing $R(0)$ and $\left< R \right>$ of the \EA spicules to $R(0)$ and $\left< R \right>$ of the \TA spicules, we quantified the toughness enhancement provided by the \EA spicule's architecture both at fracture initiation and during crack growth (see Section \ref{sec:Rcomp}).
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:res}
+To measure $R(0)$ and $\left< R \right>$, we performed flexural tests on 25 \EA and 12 \TA spicules using a configuration similar to that described  by Jaya et al \cite{jaya2012new,jaya2014crack,jaya2015can}. We placed a spicule across a trench that was cut in a steel plate and ensured that its longitudinal axis was perpendicular to the trench edges (see {\bf Figure \ref{fig:notch}} (A)). We used trenches whose spans were nominally 600 to 800 $\mu$m and measured the span of each trench, $L$, from optical micrographs (see Tables \ref{tab:EAdata} and \ref{tab:TAdata}). We then glued the ends of the spicule to the steel plate so that only the section suspended over the trench remained exposed. 
+
+The spicule specimen's undeformed configuration can be described using the orthonormal set of Cartesian basis vectors $\{\ex,\ey,\ez\}$, shown in Figure \ref{fig:notch} (A), (B), and (D), and their corresponding Cartesian coordinates $\{x_1,x_2,x_3\}$. The origin of this coordinate system, denoted as $\mathcal{O}$, is located at the point on the spicule's central, longitudinal axis directly above the left trench edge (see Figure \ref{fig:notch} (A)).
+
+We cut a notch through part of the spicule's cross-section located mid way across the trench (i.e., at $x_1=L/2$) using a focused ion beam (FIB) (see Figure \ref{fig:notch} (A)--(B) and Section~\ref{sec:notchconfig}). A representative micrograph of a notched spicule is shown in Figure \ref{fig:notch} (C). Figure \ref{fig:notch} (D) depicts a schematic representation of the spicule's cross-section at $x_1=L/2$ in which the notched region is shown in light blue and the remaining ligament is shown in dark blue. We refer to the apex or tip of the notch as the notch root. The notch root is a straight line segment that is parallel to $\ez$, see Figure \ref{fig:notch} (D)). After cutting the notch, we imaged the spicule using the FIB and measured the diameter of the spicule's cross-section at $x_1=L/2$, $D$, and the notch length, $a$, from the micrographs (see Tables \ref{tab:EAdata} and \ref{tab:TAdata}). 
+%
+			\begin{figure}[hb!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureNotch/Figure3_V6.pdf}
+			\caption{Notched spicule specimen geometry. (A) A schematic of the test configuration. The stage is denoted by a black dot. (B) A magnified view of the region shown in the red rectangle in (A) showing the notch geometry. The broad cut that was made using a high accelerating current is marked in green and the narrow cut that was made using the low accelerating current is marked in orange. (C) A scanning electron micrograph of the notch cut in a representative \EA spicule. (D) A schematic of the spicule's cross-section at $x_1$=$L$/2 after notching. The notch root is straight and parallel to $\ez$. The notch length is $a$. The remaining ligament has a cross sectional area $A^-$.}
+			\label{fig:notch}
+			\end{figure}
+
+We positioned the spicule underneath a steel wedge so that the apex of the wedge was located at $x_1=L/2$ on the opposite side of the spicule from the notch (see Figure \ref{fig:notch} (A)). We used a motorized translation stage to push the wedge into the spicule in 1 $\mu$m displacement increments at a rate of 1 $\mu$m/s. The displacement of the translation stage is $-w_s\ey$ (see {\bf Figure \ref{fig:test}} (A)). We also measured the displacement of the spicule's cross-section beneath the wedge, $w_0$ (see Figure \ref{fig:test} (A)). The device used to perform the flexural tests is described in detail in \cite{monn2017enhanced,monn2017millimeter}.
+
+The wedge was attached to a cantilever whose stiffness was measured before the test. We measured the deflection of the cantilever using a fiber optic displacement sensor. The force acting on the spicule is $-F\ey$. We computed $F$ using the cantilever's stiffness and the measured deflection \cite{monn2017enhanced}. Since spicule specimens with longer notches require less force to fracture, we used cantilevers with different stiffnesses depending on the spicule diameter and notch length. The cantilever stifnesses in our experiments ranged from 88 to 9100 Nm$^{-1}$.
+
+Our test configuration can be thought of as a modification of the ``single edge crack round bar bend'' (SEC-RBB) test described by Bush \cite{bush1976experimentally}. In contrast to the standard SEC-RBB test, in our test the specimen's ends are encastered or fixed rather than supported by rollers.
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Force-displacement responses of notched spicules}
+\label{sec:fdresp}
+Representative $F$-$w_0$ data for an \EA and \TA spicule are shown as dark gray points in Figure \ref{fig:test} (C) and (D), respectively. We observed that $F$ first increases with $w_0$ up to a value of $F_c$, at which point there is an abrupt drop in force. We interpret this abrupt drop in force to be the point at which a crack starts growing from the notch root. This event is commonly referred to as ``pop-in'' \cite{paris1965fracture,jaya2014crack}. We denote the displacement corresponding to $F_c$ as $w_c$. The point $(w_c, \; F_c)$ is shown as a red square in Figure \ref{fig:test} (C) and (D) and the values of $w_c$ and $F_c$ for each specimen are given in Tables \ref{tab:EAdata} and \ref{tab:TAdata}. 
+
+As we continued to load the spicule after pop-in, the crack propagated across the spicule's cross-section until it completely cleaved the spicule into two pieces. Finally, we unloaded the spicule by moving the stage away from the spicule (i.e., in the $\ey$ direction) in 1 $\mu$m displacement increments at a rate of 1 $\mu$m\,s$^{-1}$. The $F$-$w_0$ data obtained during unloading are shown as light gray points in Figure \ref{fig:test} (C) and (D).
+
+After the spicule was completely unloaded we dissolved the adhesive on its ends and obtained two separate pieces, which we collected for additional imaging (see Section \ref{sec:fracto}).
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureTest/Figure4_V7A.pdf}
+			\caption{Data obtained from the bending tests. (A) The wedge is used to apply a force $-F\ey$. The displacement of the stage is $-w_s\ey$ and the corresponding displacement of the spicule's cross-section at $x_1=L/2$ is $-w_0\ey$. The stage is denoted by a black dot. The glue (shown in green) prevents the ends of the spicule from rotating or moving relative to the plate to which is it attached. (B) After the specimen has failed completely, it resembles two cantilevers. (C) The $F$-$w_0$ response of a representative \EA spicule. (D) The $F$-$w_0$ response of a representative \TA spicule. The $F$--$w_0$ data obtained during loading and unloading are shown as dark gray points and light gray points, respectively. Crack initiation (i.e., pop-in) is marked as a red square and has a force and displacement of $F_c$ and $w_c$. The insets in (C) and (D) show a magnified view of the $F$-$w_0$ response leading up to pop-in and the drop in force during pop-in, $\Delta F_c$. The point of complete failure is marked with a green square and has a force and displacement of $F_f$ and $w_f$. The blue line with slope $1/C_f$ is the line that passes through the origin and the point $(w_f,\; F_f)$. The shaded region marked $U_F$ in (C) and (D) is the area enclosed between the $F$-$w_0$ data and this line.
+			}
+			\label{fig:test}
+			\end{figure}
+ 			
+			
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fractography}
+\label{sec:fracto}
+ After testing the \EA and \TA spicule specimens, we imaged their fracture surfaces using a scanning electron microscope (see {\bf Figure \ref{fig:fract}} (A), (B)). In all \EA and \TA specimens, failure appears to occur via a single crack that originates at the notch root. The existence of a single dominant crack is a prerequisite to computing the spicules' average crack growth resistance, which we do in Section \ref{sec:avgR}. 
+ 
+ The fracture surfaces of both the \EA and \TA spicules appear to be relatively featureless. In the case of the \EA spicules, this contrasts with the fracture surfaces observed in other SBMs with layered architectures, like nacre and conch shell (see Figure \ref{fig:arch} (D), (F)). In these other SBMs the fracture surfaces appear very rough. This roughness is thought to be a signature of the crack arrest and re-nucleation toughening mechanism that occurs when a crack reaches an interface between adjacent layers \cite{karambelas2013strombus, koester2008true,liu2000bending,barthelat2009review}. Specifically, after a crack is arrested at an interface between layers, it often will not continue along the same path as before when it re-nucleates in the next layer. The resulting deflection of the crack path manifests as surface roughness in fractographs. As such, the relatively smooth fracture surface of the \EA spicules suggests that they may not possess the same toughening mechanism(s) associated with these other SBMs.
+%
+\begin{figure}[hb!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureFract/Figure4_V4B.pdf}
+			\caption{Micrographs of a fractured (A) \EA and (B) \TA spicule. False color is used to mark important features. The purple region in both (A) and (B) corresponds to the coarse (higher current) FIB cut discussed in Section \ref{sec:notchconfig}. The red region in (A) and (B) corresponds to the fine (lower current) FIB cut. The blue regions correspond to debris that we assume collected on the fracture surfaces during specimen preparation. The red arrow denotes the direction of crack growth. The cusp feature in (A) and (B) is a feature of the three-point bending test configuration that appears for both the \EA and \TA spicules. In (B), part of this feature is occluded by the adhesive used to mount the spicule to the aluminum stub.}
+			\label{fig:fract}
+			\end{figure}
+
+The fracture surfaces of both the \EA and \TA spicules have a cusp feature adjacent to where the load is applied (see e.g., Figure~\ref{fig:fract} (A), (B)). This cusp is characteristic of the three point bending configuration \cite{quinn2007fractography} and is a consequence of the compressive stresses caused by the wedge inducing local mixed-mode fracture conditions, which cause the crack to change direction \cite{anderson2017fracture}. The cusp is not a result of a toughening mechanism caused by the \EA spicules architecture since it also appears in the \TA spicules, which lack the layered architecture.
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurements of fracture initiation toughness}
+\label{sec:Gc}
+During pop-in, a crack grows from the notch root in the transverse direction, across the spicule's cross-section (i.e., in the $\ey$ direction, see Figure~\ref{fig:Rcurve} (B)). We assume that the crack front is straight and parallel to the notch root (i.e., parallel to $\ez$) and denote the crack length as $\Delta a$. The energy release rate $G$ is given by
+%
+\begin{equation}
+    \label{eq:G1}
+    G(\Delta a;\,w_s)=-\frac{1}{2\sqrt{(a+\Delta a)(D-(a+\Delta a))}}\frac{d\Pi(\Delta a; w_s)}{d\Delta a },
+\end{equation}
+%
+where $\Pi(\Delta a;w_s)$ is the system's potential energy when the crack is of length $\Delta a$ and the applied displacement is $w_s$. For a derivation of Equation~\eqref{eq:G1}, see Section \ref{sec:R0deriv}. It follows from Irwin's analysis of Griffith's theory of fracture that the necessary condition for crack growth is $G(\Delta a,w_s)\geq R(\Delta a)$, where $R(\Delta a)$ is the material's crack growth resistance \cite{anderson2017fracture}. We assume that crack growth first occurs when $G(0,w_s)=R(0)$ and $w_s$ is the applied displacement at pop-in. Thus, the fracture initiation toughness $R(0)$ is given by
+%
+\begin{equation}
+    \label{eq:R0}
+    R(0)=-\frac{1}{2\sqrt{a(D-a)}} \left.\frac{d\Pi(\Delta a; w_s)}{d\Delta a }\right\vert_{\Delta a=0},
+\end{equation}
+%
+where $w_s$ is the applied displacement at pop-in.
+
+For each \EA and \TA spicule that we mechanically tested, we measured $R(0)$ by computing the derivative in Equation~\eqref{eq:R0} using a computational mechanics model. This model is described in detail in Section \ref{sec:Vextmethod}. In the computational mechanics model we consider both the \EA and \TA spicules to be made of a homogeneous, linear elastic material. In reality, the \EA spicules contain layers and are therefore not homogeneous. Therefore, the values of $R(0)$ that we obtain for the \EA spicules should be considered to be an \emph{effective} fracture initiation toughness.
+
+The accurate estimation of $R(0)$ using Equation~\eqref{eq:R0} is predicated on the assumption that the notch behaves like a sharp crack (i.e., the radius of curvature of the notch root is vanishingly small). It has been shown that the FIB cutting technique can produce notch root radii that are small enough to act like sharp cracks~\cite{fett2008fracture}. This is supported by additional work~\cite{kubler1997fracture} showing that if the notch root radius is less than twice the smallest microstructural length scale, then the measured value of $R(0)$ becomes insensitive to the notch root geometry. The \EA spicules' layers are composed of silica nanoparticles that are approximately 100 nm in diameter~\cite{aizenberg2005skeleton}. We take the size of these nanoparticles to be the smallest microstructural length scale present in the \EA spicules. We assume that the \TA spicules have a similar smallest microstructural length scale. This assumption is supported by atomic force microscopy of the \TA spicules \cite{weaver2003nanostructural}. Therefore, in order for the value of $R(0)$ to be insensitive to the notch root geometry, the radius of curvature of the notch root, $r_n$, should be less than 200 nm (see Figure \ref{fig:notch} (B) inset). 
+
+We measured $r_n$ for each specimen from scanning electron micrographs by manually selecting three points along the profile of the notch root and fitting a circle to these points (see Tables~\ref{tab:EAdata} and \ref{tab:TAdata}). The mean value of $r_n$ for the 25 \EA spicules and 12 \TA spicules was 107.8 nm and 113.9 nm, respectively. We identified 4 \EA spicule specimens and 2 \TA spicule specimens for which $r_n$ exceeded 200 nm, and consequently we did not compute $R(0)$ for these specimens. Additionally, there were 4 \EA spicule specimens for which we were unable to reliably identify the pop-in event by inspecting the $F$-$w_0$ response, and therefore could not obtain $w_c$. Thus, we computed $R(0)$ for 17 \EA spicules and 10 \TA spicules (see {\bf Figure~\ref{fig:R}} (A)).
+
+We measured $R(0)$ for the \TA spicules to be 3.71$\pm$0.90 Jm$^{-2}$ (mean$\pm$standard error, $N=10$) and $R(0)$ for the \EA spicules to be 3.96$\pm$0.76 Jm$^{-2}$ (mean$\pm$standard error, $N=17$). The measurements of $R(0)$ for each spicule are shown in Figure \ref{fig:R} (A) and in Tables \ref{tab:EAdata} and \ref{tab:TAdata}. These values are similar to those expected for glass and other brittle ceramic materials (see Figure \ref{fig:R} (A)). Furthermore, a two-sided $t$-test for independent samples (equal variances not assumed) indicated no significant difference in the mean values of $R(0)$ for the \EA and \TA spicules (degrees of freedom=20.5, $t$=0.21, $p$=0.83). Thus, the \EA spicule's architecture does not have a significant effect on its fracture initiation toughness.
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureR/Figure5_V7.pdf}
+			\caption{Crack growth resistance of \EA and \TA spicules. (A) Fracture initiation toughness, $R(0)$, of 17 \EA spicules (yellow circles) and 10 \TA spicules (red triangles) versus dimensionless notch length, $\alpha=a/D$. Reference lines are shown corresponding to the fracture initiation toughnesses of three types of synthetic glass measured by \cite{wiederhorn1969fracture}. The inset shows a closer view of these three values. (B) Average crack growth resistance, $\left< R \right>$, of 19 \EA spicules (hollow yellow circles) and 5 \TA spicules (hollow red triangles) versus $\alpha$.  Reference lines are given that correspond to the average crack growth resistance of the three types of synthetic glass shown in (A). We computed the value of $\left< R \right>$ from the measurements of the work of fracture provided by \cite{wiederhorn1969fracture}. The inset in (D) shows a closer view of these three values.}
+			\label{fig:R}
+			\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurements of average crack growth resistance}
+\label{sec:avgR}
+In our experiment the average crack growth resistance, $\left< R \right>$ is defined as
+%
+\begin{equation}
+    \label{eq:avgRdef}
+    \left< R \right> =\frac{1}{D-a}\int_0^{D-a}R(\Delta a)\,\mathrm{d}\Delta a.
+\end{equation}
+%
+
+We measured $\left< R\right>$ using the work of fracture method \cite{nakayama1981crack,sakai1992work}. Specifically, it can be shown that 
+%
+\begin{equation}
+    \label{eq:Rwof}
+    \left< R \right>=2 \gamma_{WOF},
+\end{equation}
+%
+where $\gamma_{WOF}$ is called the work of fracture \cite{sakai1992work}. The work of fracture is obtained by fracturing a specimen, measuring the total energy that is consumed by the fracture process, $U_F$, and dividing that by the total new surface area created \cite{nakayama1981crack}. Because the spicule specimens are cleaved into two pieces by a single crack emanating from the notch root (see Section \ref{sec:fracto}), we take the total new surface area created to be twice the cross-sectional area of a specimen's ligament before any crack growth has occurred, $A^-$ (see Figure~\ref{fig:notch} (D)). Therefore, $\left< R \right>$ is given by 
+%
+\begin{equation}
+    \label{eq:avgR1}
+    \left< R \right> = U_F/A^-.
+\end{equation}
+%
+
+In order to compute $\left< R \right>$ using Equation~\eqref{eq:avgR1}, the crack must grow in a stable manner throughout the test \cite{tattersall1966work,davidge1968effective}. Unstable crack growth events appear as discontinuities in the $F$-$w_0$ response. The pop-in (marked by a red square in Figure \ref{fig:test} (C) and (D)), is an example of such an event. Consequently, $\left< R \right>$ computed using Equation~\eqref{eq:avgR1} from the $F$-$w_0$ data will be an overestimate of the actual value of $\left< R \right>$. Aside from the pop-in event, however, the $F$-$w_0$ curves shown in Figure \ref{fig:test} are continuous. For that reason, we believe that in our experiments the cracks grow in a predominantly stable manner. Previous studies have attempted to compute the spicule's work of fracture from their $F$-$w_0$ response \cite{walter2007mechanisms, mayer2005rigid}. However, the data presented in these previous studies suggests that the crack growth was not stable and therefore the data in these studies cannot be used to obtain accurate estimates of $\left< R \right>$. 
+
+We used the magnitude of the drop in $F$ at pop-in as a criterion for determining which spicule specimens could be used to estimate $\left< R\right>$. Specifically, we measured the drop in force during pop-in, $\Delta F_c$ (see Figure \ref{fig:test} (C), (D) inset), and compared it to $F_c$. We considered a test to have predominantly stable crack growth if $\Delta F_c \leq 0.15 F_c$. We identified 6 \EA and 7 \TA spicules for which $\Delta F_c > 0.15 F_c$ and consequently we did not compute $\left< R \right>$ for these specimens.
+
+If the crack grows in a predominantly stable manner then the change in kinetic energy of the spicule during the test is negligible and it can be shown that
+%
+\begin{equation}
+\label{eq:Uf1}
+U_F+U_{ef}=\int_0^{w_f}F \,\mathrm{d}w_0,
+\end{equation}
+%
+where $w_f$ is the value of $w_0$ at which the crack has just cleaved the specimen into two pieces and $U_{ef}$ is the elastic energy of the spicule in the completely failed state. The integral on the right hand side of Equation~\eqref{eq:Uf1} is the work done on the spicule until it has completely failed. In order to evaluate this integral we must identify the $(w_0,\; F)$ point at which the crack had just cleaved the spicule into two pieces. 
+
+We assume that if at any point during the test we were to unload the spicule, $F$ would decrease linearly with $w_0$ until the values of both reached zero. Our rationale for this assumption is that the spicule behaves in a linear elastic fashion when there are no dissipative processes operating (e.g., crack growth). This means that the elastic unloading compliance of the spicule at a point $(w_0, \;F)$ is given by $C=w_0/F$. Since crack growth invariably increases the elastic unloading compliance of a structure, we know that $C$ should be greatest when the crack has completely cleaved the spicule into two pieces. Thus, we define $w_f$ and the corresponding force, $F_f$, at which the spicule has just been cleaved into two pieces to be the $(w_0, \;F)$ point for which $C$ is maximum. The point $(w_f,\; F_f)$ is shown in Figure~\ref{fig:test} (C) and (D) as a green square. The line with slope $1/C_f$ that passes through both this point and the origin is also shown in Figure~\ref{fig:test} (C) and (D) in blue. The values of $w_f$ and $F_f$ for each specimen are given in Tables \ref{tab:EAdata} and \ref{tab:TAdata}.
+
+In many test configurations, such as the standard single edge crack specimen \cite{bush1976experimentally}, $U_{ef}=0$. However, for the configuration that we use, $U_{ef}$ is nonzero since the specimen's stiffness is finite even after the crack has completely cleaved the specimen into two halves. Specifically, when our specimen has completely failed, the elastic energy is given by $U_{ef}=w_f F_{f}/2$. We can therefore simplify Equation~\eqref{eq:avgR1} and \eqref{eq:Uf1} to get
+%
+\begin{equation}
+\label{eq:avgR2}
+\left< R \right>=\frac{\int_0^{w_f}F \mathrm{d}w_0-w_f F_{f}/2}{A^-}.
+\end{equation}
+
+For a specimen with a circular cross-section containing a notch of length $a$ and crack of length $\Delta a$, as shown in Figure \ref{fig:Rcurve} (B), the area of the intact portion of the specimen's cross-section is
+%
+\begin{equation}
+    \label{eq:Alig}
+    A(\Delta a)=\frac{\pi D^2}{4}+\frac{1}{2}\left(D-2(a+\Delta a)\right)\sqrt{(a+\Delta a)(D-(a+\Delta a))}-\frac{D^2}{4}\cos^{-1}\left(1-\frac{2(a+\Delta a)}{D}\right).
+\end{equation}
+%
+In Equation \eqref{eq:Alig} we assume that both the notch root and crack front are straight line segments that are parallel to $\ez$. We computed $A^-=A(0)$ from Equation~\eqref{eq:Alig} using the $a$ and $D$ that we measured from scanning electron micrographs taken before the flexural tests (see Section \ref{sec:res}).
+
+For 19 \EA and 5 \TA spicule specimens we computed $\left< R\right>$ from Equation~\eqref{eq:avgR2} using trapezoidal integration of the $F$-$w_0$ data up to the point $(w_f, \; F_f)$. We found  $\left< R \right>$ to be 160.12$\pm$23.99 Jm$^{-2}$ (mean$\pm$standard error, $N$=19) and 66.99$\pm$20.04 Jm$^{-2}$ (mean$\pm$standard error, $N$=5) for the \EA and \TA spicules, respectively. The measurements of $\left< R \right>$ for each spicule are shown in Figure \ref{fig:R} (B) and in Tables \ref{tab:EAdata} and \ref{tab:TAdata}.
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Comparison of toughness enhancements}
+\label{sec:Rcomp}
+We found that average crack growth resistance of the \EA spicules was higher than that of the \TA spicules. Specifically, computing the ratio $\left< R\right>^{(\mathrm{EA})}/\left< R\right>^{(\mathrm{TA})}$ shows that the architecture increases $\left< R\right>$ by a factor of 2.39. While this ratio is evidence that the \EA spicule's architecture does enhance toughness, we should put this enhancement in the context of enhancements observed in other SBMs. We denote the crack growth resistances of an architectured material and its corresponding homogeneous ceramic constituent with the superscripts $(\mathrm{arch})$ and $(\mathrm{hom})$, respectively. By computing $\left< R\right>^{(\mathrm{arch})}/\left< R\right>^{(\mathrm{hom})}$ for nacre, bone, antler and conch shell using work of fracture data available from literature (see {\bf Figure \ref{fig:SBMcomp}} (B) and Table \ref{tab:SBMsumm}), we see that the $\left< R \right>$ enhancement in the \EA spicules is quite small. For example, $\left< R\right>^{(\mathrm{arch})}/\left< R\right>^{(\mathrm{hom})}$ for the conch shell exceeds 1000; several hundred times larger than the $\left< R \right>$ enhancement in the \EA spicules.
+
+By computing the enhancement in $R(0)$ using the same procedure, we see that $R(0)^{(\mathrm{arch})}/R(0)^{(\mathrm{hom})}$ can be as large as 250 in nacre, bone, antler and conch shell. In contrast, we measured $R(0)^{(\mathrm{arch})}/R(0)^{(\mathrm{hom})}$ to be only 1.07 for the \EA spicules. Thus, while the \EA spicules share a common architectural motif with many tough SBMs, our measurements suggest that these seemingly similar architectures do not provide comparable enhancements to either the fracture initiation toughness or average crack growth resistance.
+
+Other studies have compared the mechanical behaviors of spicules with layered architecture to synthetic glass fibers \cite{johnson2010influence,levi1989remarkably,walter2007mechanisms,weaver2010unifying,mayer2005rigid}, despite the spicules having a lower elastic modulus and a different chemical composition \cite{arasuna2018structural, weaver2010unifying, woesz2006micromechanical}. Unlike synthetic glass, the \EA spicules are composed of hydrated silica that is precipitated onto a proteinaceous scaffold~\cite{ehrlich2010chitin}. The effect of this scaffold on the mechanical properties of the spicule's silica is not fully understood. It would therefore not be possible to isolate the effect of the spicule's layered architecture on its toughness properties by comparing them to synthetic glass fibers. The \EA spicules should instead be compared to a specimen composed of the same biogenic silica but which is monolithic. An ideal choice for this homogeneous control material would be a section of the solid silica core of the \EA spicules. However, so far we have not successfully obtained a large enough section of the \EA spicule core to perform fracture tests. Therefore, we chose the \TA spicules as what we believe to be the next best alternative.
+%
+			\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FigureSBMcomp/Figure6_V4.pdf}
+			\caption{
+			Comparison of the \EA spicule's toughness enhancement to the toughness enhancements of other SBMs with layered architectures. (A)  The initiation toughness enhancement metric $R(0)^{(\mathrm{arch})}/R(0)^{(\mathrm{hom})}$ of the \EA spicules and other SBMs with layered architectures. We used the value $R(0)^{(\mathrm{hom})}=3$ Jm$^{-2}$ of calcite as the control material for nacre and conch~\cite{wegst2004mechanical}, and $R(0)^{(\mathrm{hom})}=10$ Jm$^{-2}$ of hydroxyapatite \cite{wegst2004mechanical} as the control material for bone and antler. (B) The average toughness enhancement metric $\left< R\right>^{(\mathrm{arch})}/\left< R\right>^{(\mathrm{hom})}$ of the \EA spicules and other SBMs with layered architectures. We used the value $\left< R\right>^{(\mathrm{hom})}=11$ Jm$^{-2}$ of limestone as the control material for nacre and conch~\cite{carmichael1982crc}, and $\left< R\right>^{(\mathrm{hom})}=70$ Jm$^{-2}$ of hydroxyapatite \cite{tenhuisen1995formation} as the control material for bone and antler. In both (A) and (B), the values of $R(0)$ and $\left< R \right>$ for nacre, bone, antler, and conch (\textit{S. gigas}) were obtained from the literature (see Table~\ref{tab:SBMsumm}). The multiple values for bone in (A) and for nacre and bone in (B) correspond to experiments performed by different research groups. The two green triangles connected by a line in (A) correspond to the range of values reported by \cite{koester2008true}. The references from which the data points were obtained are annotated in the insets. 
+			}
+			\label{fig:SBMcomp}
+			\end{figure}
+			
+\begin{table}
+\centering
+\caption{Summary of SBM crack growth resistance data used to compute the toughness metrics in Figure \ref{fig:SBMcomp}.}
+\label{tab:SBMsumm}
+\ra{1.25}
+\begin{threeparttable}[t]
+\begin{tabular}{llll}
+\toprule
+Material & $R(0)$ [Jm$^{-2}$] & $\left< R\right>$ [Jm$^{-2}$] $^\text{c)}$ & Ref.\\
+\midrule
+nacre (\textit{Pinctada margaritifera}) & 587 & 2068 & \cite{jackson1988}\\
+nacre (\textit{Pinctada margaritifera}) & --- & 3300 & \cite{currey1977}\\
+nacre (\textit{Pinctada margaritifera}) & --- & 2880 & \cite{rabiei2010failure}\\
+% \midrule
+bone (\textit{Homo sapiens})& 50--200 & 11250 & \cite{koester2008true}\\
+bone (\textit{Homo sapiens})& 224 & --- & \cite{nalla2005mechanistic}\\
+bone (\textit{Papio anubis})& --- & 15520 & \cite{liu2000bending}\\
+bone$^\text{a)}$ & --- & 8000 & \cite{currey1977}\\
+% \midrule
+antler (\textit{Cervus canadensis}) & 100 & 14000 & \cite{launey2009mechanistic}\\
+% \midrule
+conch (\textit{Strombus gigas}) & 25 & 26000 & \cite{kuhn1996fracture}\\
+% \midrule
+calcite$^\text{b)}$ & $\approx$3 & --- & \cite{wegst2004mechanical}\\
+limestone & --- & 22& \cite{carmichael1982crc}\\
+hydroxyapatite$^\text{b)}$ & $\approx$10 & --- & \cite{wegst2004mechanical}\\
+hydroxyapatite & --- & 140 & \cite{tenhuisen1995formation}\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a)] {\footnotesize The authors of this work did not specify the genus and species from which the bone specimens were obtained;
+\item[b)] Approximate values are given because the data was taken from a graph showing ranges of property values;
+\item[c)] Values were obtained for the work of fracture, $\gamma_{WOF}$, and were used to compute $\left< R\right>=2\gamma_{WOF}$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\label{sec:discussion}
+Toughness enhancements in SBMs are often caused by multiple mechanisms that are triggered as a crack interacts with the features of the material's architecture \cite{barthelat2007experimental,currey1977,launey2009fracture}. For example, in nacre and other mollusk shells one important toughening mechanism is crack arrest \cite{jackson1988mechanical,currey1977,kamat2000structural}. This phenomenon occurs when a crack impinges on a weak interface between two layers and requires more energy to resume propagation in the adjacent, undamaged layer. Often, the arrest of a crack will be accompanied by crack deflection along the interface between the adjacent layers. Based on the jagged fracture surfaces observed in previous studies of \EA spicules (see Figure \ref{fig:EATA} (C)), it has been speculated that the spicules \emph{may} also benefit from toughening through crack arrest and re-nucleation~\cite{mayer2011new,walter2007mechanisms}. However, the fracture surfaces of the notched spicules (see Section \ref{sec:fracto}) are relatively featureless (see Figure \ref{fig:fract} (A)). From these results and the relatively small toughness enhancement observed in the \EA spicules it is clear that the \EA spicule's architecture does not trigger the same toughening mechanisms observed in these other SBMs. Or, if the same toughening mechanisms are triggered, they are not as effective in the \EA spicules.
+
+To understand the difference between the toughening mechanisms operating in the \EA spicules and in SBMs like nacre we performed virtual experiments using a regularized variational fracture (RVF) method (see Section \ref{sec:VFmethod} for details). These virtual experiments allowed us to predict the  mechanical behaviors of and crack paths in materials with layered architectures. Specifically, we used the RVF method to simulate crack growth in a material with flat/planar layers, like that which appear in nacre, and a material with cylindrical layers, like in the \EA spicules.
+
+Our model material with a planar layered architecture consists of a notched beam with a rectangular cross-section whose width $W=1$ mm, thickness $H=1$ mm and length $L=5$ mm. The beam is composed of two layers separated by a thin ``interlayer'' (see {\bf Figure~\ref{fig:VF}} (A)). Similarly, our model material with a cylindrical layered architecture consists of a notched beam with a cylindrical cross-section composed of two layers separated by a cylindrical interlayer (see Figure~\ref{fig:VF} (B)). We constrained the cylindrical beam to have the same volume as the rectangular beam and therefore its diameter $D=1.228$ mm and length $L=5$ mm. The notch length $a$ in both beams is 0.2 mm.
+
+In both beams, the interlayer has a thickness $t = 0.1$ mm and is located a distance $b = 0.2$ mm from the notch root.  The Young's modulus $E = 20.8$ GPa and Poissons ratio $\nu = 0.3$ are the same in both the layers and the interlayer. However, the fracture toughness is $G_b = 500$ Jm$^{-2}$ in the layers and $G_I = 0.5$ Jm$^{-2}$ in the interlayer. We loaded the beams in three-point bending by applying a displacement $w_0$ shown in Figure~\ref{fig:VF}. 
+
+In Figure~\ref{fig:VF} (C) we show the load-displacement ($F$-$w_0$) response of the planar layered beam as well as that of a beam with the same geometry but without the interlayer. The monolithic beam exhibits typical brittle behavior with crack initiation occurring at $F\approx25$ N leading to a large drop in $F$, which corresponds to abrupt crack growth, followed by a decrease in $F$ until complete failure. The planar layered beam shows an almost identical response until the peak load is reached and first load drop occurs. After the first load drop, however, the load again increases before a second load drop occurs leading to complete failure. The crack path for the planar layered beam at $w_0 = 0.16$ mm is shown in Figure~\ref{fig:VF} (D). By examining the crack path at different values of $w_0$, we observe three stages of crack growth:
+%
+\begin{enumerate}
+    \item A crack initiates at the peak load and grows until it reaches the interlayer. This corresponds to the first load drop from $F \approx 25$ N to $F \approx 9$ N. Once the crack reaches the interlayer, it is arrested.
+    \item The load then increases from $F \approx 9$ N to $F \approx 10$ N. During this increase, some amount of interfacial fracture occurs (see Figure~\ref{fig:VF} (D)) but the crack does not grow into the second layer. Thus, the increase in load corresponds to the crack being arrested by the weak interface.
+    \item Finally, the crack re-nucleates in the second layer, resulting in the second load drop from $F \approx 10$ N to $F \approx 5$ N. After the second load drop, the crack continues to grow through the second layer until complete failure occurs.
+\end{enumerate}
+%
+We computed $\left< R\right>^{(\mathrm{arch})}/\left< R\right>^{(\mathrm{hom})}$ from the force-displacement response of the planar layered beam to be 1.18. This toughness enhancement is caused by the combined effects of two toughening mechanisms: interfacial fracture, and crack arrest and re-nucleation.
+
+			\begin{figure}[ht!]
+			\includegraphics[width=\textwidth]{../Figures/FigureVRF/FigureVRF_V1.pdf}
+			\caption{Regularized variational fracture model of beams with planar and cylindrical layered architectures. (A) Geometry of the notched layered beam with one planar interlayer shown in gray. (B) Geometry of the notched cylindrical layered beam with one cylindrical interlayer shown in gray. (C) Load displacement ($F$-$w_0$) response of the planar layered beam loaded in three-point bending.  (D) Crack paths in the planar layered beam as seen from the planes whose normal vectors are $\ez$ and $\ey$. The red region corresponds to the crack path predicted by the RVF calculations at a displacement $w_0=0.16$ mm. (E) $F$-$w_0$ response of the cylindrical layered beam loaded in three-point bending.  (D) Crack paths in the cylindrical layered beam as seen from the planes whose normal vectors are $\ez$ and $\ey$. The red region corresponds to the crack path predicted by the RVF calculations at a displacement $w_0=0.16$ mm. The gray curves in (C) and (E) correspond to monolithic beams with the same geometry and bulk properties.}
+			\label{fig:VF}
+			\end{figure}
+
+In the case of the cylindrical layered beam, we observed that the $F$-$w_0$ response is almost identical to that of its corresponding monolithic beam (see Figure~\ref{fig:VF} (E)). By examining the crack path for the cylindrical layered beam at different values of $w_0$ (e.g., see Figure~\ref{fig:VF} (F)) we observed that interfacial fracture occurs to roughly the same extent as in the planar layered beam. This results in a small toughness enhancement, $\left< R\right>^{(\mathrm{arch})}/\left< R\right>^{(\mathrm{hom})}$, of 1.05. However, unlike the planar layered beam, the crack does not become arrested at the interlayer. The absence of the crack arrest and re-nucleation toughening mechanism explains why the toughness enhancement in the cylindrical layered beam is substantially lower than in the planar layered beam.
+
+From this we conclude that while interfacial fracture does enhance the toughness of the cylindrically layered beam, its effect is small compared to the arrest and re-nucleation mechanism that occurs in the planar layered beam. This difference in toughening mechanisms could explain why the toughness enhancement is so much smaller for the \EA spicules than for other SBMs with planar layered architectures.
+	
+\section{Conclusion}
+The surprisingly limited toughness enhancement provided by the \EA spicule's architecture reminds us that it is important to measure each SBM's toughness properties rather than categorizing it as tough solely based on the existence of a layered architecture. Furthermore, the contrast between our findings and previous speculations that the \EA spicule's layers enhance their toughness shows that the understanding of the relationship between layered architectures and toughness enhancement is not yet complete. By showing the extreme variability of the toughness enhancements that are provided by different layered architectures (see Section~\ref{sec:Rcomp} and Figure \ref{fig:SBMcomp}), we hope to galvanize interest in developing a more complete understanding of this relationship. A better understanding of this structure-property relationship is crucial for developing useful bio-inspired designs and avoiding the pitfalls of naive biomimicry.
+
+%%%%%%%%%%%%%%%%%%%%%
+% \section{Experimental Section}
+\section{Methods}
+\label{sec:methods}
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spicule specimen preparation}
+\label{sec:sampleprep}
+\textit{Euplectella aspergillum} skeletons were received dried with the organic tissue removed (see Figure \ref{fig:EATA} (A)). We removed spicules from the basal portion of the skeleton using tweezers and cut $\approx$5 mm sections from roughly the midpoint along their length using a razor blade. \textit{Tethya aurantia} spicules were received dried and separated from the sponge's organic tissue. We inspected the \EA and \TA spicules using a polarized light microscope and discarded specimens that were visibly cracked or damaged.
+
+All specimens were stored in dry conditions prior to testing. We are aware that the mechanical properties of some SBMs can change substantially if they are soaked in water before testing. For example, the work of fracture of nacre that has been soaked in artificial seawater is 137\% higher than that of the same nacre stored in dry conditions \cite{jackson1988}. The soaking procedure is thought to restore the organic phases within them to their native, hydrated state.  However, in Supplementary Information \ref{sec:hyd}, we compare the Young's modulus and bending failure strain of \EA spicule specimens stored in wet and dry conditions and find no significant difference between the two. Motivated by these results, we chose to test the spicules in their as-received, dry state.
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spicule notching procedure}
+\label{sec:notchconfig}
+We cut notches in the spicules using a focused ion beam (FIB) and a procedure similar to that described in \cite{jaya2015can}. Before notching, we coated the spicules in 10 nm of carbon to prevent charge accumulation during the cutting procedure. We cut each notch in two steps. First, we used a relatively large accelerating current of 6.5 nA at 30 kV to make a broad cut (marked schematically in green in Figure \ref{fig:notch} (B)). Then, we used a lower accelerating current of 460 pA at 30 kV to make a narrower cut (marked schematically in orange in Figure \ref{fig:notch} (B)). The FIB was programmed to make the broad cut between 1.5 and 3 $\mu$m wide depending on the desired depth of the notch. Deeper notches required wider cuts in order to prevent the material that was ablated by the FIB from redepositing on the specimen. The narrow cut was programmed to be 250 nm wide. 
+
+The actual widths of the cuts differed from these programmed values because the ion beam has a finite width. For each \EA and \TA spicule, we directly measured the widths of both the broad and narrow cuts from scanning electron micrographs (see e.g., Figure~\ref{fig:notch} (C)). Specifically, we measured the width of a cut at the points located closest to and furthest from the notch root. We then averaged the measurements taken at these two points and took this average value to be the width of the cut. Using this procedure we measured the broad cuts to be 3.58$\pm$1.40 $\mu$m wide and the narrow cuts to be 478$\pm$188 nm wide (mean$\pm$standard deviation, $N=37$---25 of which were \EA spicules and 12 of which were \TA spicules).
+
+This two step cutting process and the resulting notch geometry is similar to the procedure for preparing standard edge-notch bending specimens in which a notch is first cut using a diamond saw (broad cut) and then subsequently scored using a razor blade (narrow cut) \cite{rocha2006effect,kubler1997fracture,damani1996critical}.
+
+Focused ion beams (FIBs) have previously been used to cut notches in micrometer-scale fracture specimens~\cite{jaya2015can,fett2008fracture,ochiai2014fracture,morishita2006fracture}.  One concern about this technique is that the cutting mechanism---i.e., material ablation using gallium ions---can cause gallium ion implantation. This implantation alters local composition of the material and therefore could affect the local material properties near the notch root. Furthermore, ion implantation could result in the generation of compressive stresses within the material, which may have an effect on the measured fracture initiation toughness. A previous study \cite{jaya2015can} addressed these concerns by measuring the fracture initiation toughness of silicon (100) using FIB notched specimens and comparing these measurements to values obtained by other research groups that used macroscopic specimens and alternative notching procedures \cite{ritchie2003failure}. Their results also match those obtained from fracture tests performed on single crystal silicon specimens that were pre-cracked using a Knoop indenter and loaded in four-point bending \cite{chen1980fracture}. Thus, they demonstrate that ion implantation does not appear to affect the measurement of fracture initiation toughness.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\singlespacing
+% \paragraph{Supporting Information} \hfill
+
+% Supporting Information is available from the Wiley Online Library or from the author.
+
+\paragraph{Acknowledgements} %\hfill 
+
+We thank James Weaver for providing us with the \TA spicules and Jarod Ferreira for his help constructing the mechanical testing device. This work was supported by National Science Foundation [Mechanics of Materials and Structures Program, grant number 1562656]; and the American Society of Mechanical Engineers [Haythornthwaite Research Initiation Grant]. M.A.M. received additional support from the NASA Rhode Island Space Grant Consortium.
+
+% \paragraph{Conflict of Interest} \hfill 
+
+% The authors declare no competing financial interests.
+
+% \vspace{2em}
+% \tabto{12cm} Received: \hfill
+
+% \tabto{12cm} Revised: \hfill
+
+% \tabto{12cm} Published online: \hfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Author Contributions} M.A.M. designed and performed the fracture tests. M.A.M. analyzed the data. K.V. developed the computational fracture mechanics models of the spicules. H.K. designed the research. M.A.M., K.V. and H.K. wrote the paper. All authors discussed the results and commented on the manuscript.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Author Information} Correspondence and requests for materials should be addressed to \\ H. K. (haneesh\_kesari@brown.edu).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Competing Financial Interests} The authors declare no competing financial interests.
+
+%%%% BIBLIOGRAPHY %%%%
+\putbib[refs]
+% \bibliography{refs}
+
+% \processdelayedfloats
+
+\end{bibunit}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %----------------------ToC INFO----------------------
+% \makeatletter
+% \efloat@restorefloats
+% \makeatother
+
+% \singlespacing
+% \clearpage
+% \pagebreak
+% \onecolumn
+% \nolinenumbers
+
+% {\bf Layered architectures can drastically increase the fracture toughness of some biological composites.}
+% %
+% The connection between layer geometry and toughness enhancement, however, is not fully understood.
+% %
+% Fracture tests of skeletal fibers from the sponge \textit{Euplectella aspergillum} provide new insights into this connection.
+% %
+% Namely, the fiber's cylindrical layers do not provide the dramatic toughness enhancements observed in biological composites containing flat layers.
+
+% \vspace{2em}
+% \textbf{Biological Composites}
+
+% \vspace{2em}
+% \textit{M. A. Monn, K. Vijaykumar, and H. Kesari$^*$}
+
+% \textbf{Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?}
+
+% \vspace{2em}
+% \begin{figure}[hb!]
+%     \centering
+%      \includegraphics[width=55 mm]{../Figures/FigureToC/FigureToC_V1.pdf}
+% \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------SUPPLEMENTARY INFO----------------------
+% \makeatletter
+% \efloat@restorefloats
+% \makeatother
+
+\doublespacing
+\clearpage
+\pagebreak
+\onecolumn
+
+\setcounter{page}{1}
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{S\arabic{section}}
+
+\setcounter{equation}{0}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+
+% \part*{Supporting Information}
+\part*{Supplementary Information}
+
+\textbf{Architecture in Stiff Biological Materials: a Template for Toughness Enhancement, or a Siren Song?}
+
+\textit{Michael A. Monn, Kaushik Vijaykumar, and Haneesh Kesari$^*$}
+
+\begin{bibunit}
+\linenumbers
+\resetlinenumber
+%%%%%%%%%%%%%%%%%%%%%
+\section{Derivation of the equation for fracture initiation toughness}
+\label{sec:R0deriv}
+The energy release rate at an applied displacement $w_s$ and crack length $\Delta a$ is given by
+%
+\begin{equation}
+    \label{eq:energyrelease}
+    G(\Delta a;\,w_s)=-\frac{d\Pi(\Delta a;\,w_s)}{d\Delta A},
+\end{equation}
+%
+where $\Delta A$ is the area of the crack. For a specimen with a circular cross-section containing a notch of length $a$ and crack of length $\Delta a$, the intact area of the specimen's cross-section $A(\Delta a)$ can be computed using Equation~\eqref{eq:Alig}. The area of the crack is then given by
+%
+\begin{equation}
+    \label{eq:Acrack}
+    \Delta A(\Delta a)=A(0)-A(\Delta a).
+\end{equation}
+
+Consequently, we can rewrite Equation \eqref{eq:energyrelease} as
+\begin{equation}
+    \label{eq:energyrelease2}
+    \begin{aligned}
+    G(\Delta a;\,w_s)&=-\frac{d\Pi(\Delta a;\,w_s)}{d\Delta a}\left(\frac{d \Delta A(\Delta a)}{d\Delta a}\right)^{-1}\\
+    &=-\frac{1}{2\sqrt{(a+\Delta a)(D-(a+\Delta a))}}\frac{d\Pi(\Delta a; w_s)}{d\Delta a },
+    \end{aligned}
+\end{equation}
+
+Per Irwin's analysis of Griffith's theory of fracture, the necessary condition for the extension of a crack is
+%
+\begin{equation}
+\label{eq:griff}
+G(\Delta a;\,w_s) \geq R(\Delta a),
+\end{equation}
+%
+where $R(\Delta a)$ is the material's crack growth resistance at a crack length $\Delta a$.
+
+By taking the equality sign in Equation \eqref{eq:griff} and evaluating it for $\Delta a \to 0$, the fracture initiation toughness is given by
+%
+\begin{equation}
+    \label{eq:R0deriv}
+    R(0)=-\frac{1}{2\sqrt{a(D-a)}} \left.\frac{d\Pi(\Delta a; w_s)}{d\Delta a }\right\vert_{\Delta a=0},
+\end{equation}
+%
+which is identical to Equation~\eqref{eq:R0}.
+
+\section{The effect of moisture on the bending behavior of \textit{E. aspergillum} spicules}
+\label{sec:hyd}
+
+We performed our fracture tests in air on sections of \EA spicules obtained from dry \EA skeletons. However, in its native state the \EA sponge lives anchored to the sea floor. It has been shown that that the mechanical behaviors of some biological materials (such as nacre~\cite{barthelat2007mechanics}, antler~\cite{chen2008fracture} and bone~\cite{chen2008fracture}) change drastically if they are dried out prior to mechanical testing. For example, the work of fracture of nacre that has been soaked in water is almost triple that of nacre that is stored in dry conditions~\cite{jackson1988}.
+
+To determine whether storing the \EA spicules in dry conditions had a significant effect on their mechanical behavior,  we soaked sections of 11 \EA spicules in artificial seawater for 16 days and then performed three-point bending tests on them using the procedure described in~\cite{monn2017enhanced}. 
+
+After soaking an \EA spicule section in artificial seawater, we placed it across a trench cut in a cut in a steel plate. The trench span, $L$, was measured from optical micrographs to be 1.278 mm. We used the same mechanical testing device described in Section \ref{sec:res} and in~\cite{monn2017enhanced} to load the spicule sections in three-point bending and measure $F$ and $w_0$ until they failed. However, unlike the experiments described in Section \ref{sec:res} we did not notch the spicule sections nor did we glue their ends to the steel plate before testing them. After each test we mounted the pieces of the broken spicule to a aluminum stub, coated them in 10 nm of carbon and imaged them in a scanning electron microscope (SEM). We measured each spicule's diameter, $D$, at the cross-section where it failed from SEM images.
+
+We used the slope $k_i$ of the initial linear portion of the spicule's $F$-$w_0$ response to compute the Young's moduli of both the 11 wet spicules and the 33 dry spicules whose $F$-$w_0$ responses were previously reported in~\cite{monn2017enhanced}. We computed the Young's moduli using Euler-Bernoulli beam theory~\cite{gere1997mechanics} as
+%
+\begin{equation}
+\label{eq0}
+E=\frac{k_i L^3}{48 I},
+\end{equation}
+%
+where $I=\pi D^4/64$. A histogram of the Young's moduli of the wet and dry spicules is shown in Figure \ref{fig:hyd}~(A). 
+
+The bending failure strains, $\epsilon_f$, of the dry spicules have already been reported in \cite{monn2017enhanced}. We computed the bending failure strain, $\epsilon_f$, of the wet spicules using the same procedure, which is described in Section 2 of~\cite{monn2017enhanced}. We selected points along the spicule's longitudinal axis from a micrograph of the spicule taken during the bending test just before the spicule failed. We fit a polynomial to these points and used it to compute the curvature of the spicule's longitudinal axis. Finally, we computed $\epsilon_f$ using the maximum value of the curvature, $\kappa^*$, as $\epsilon_f=D \kappa^*/2$. We compare $\epsilon_f$ for the wet spicules to $\epsilon_f$ for the dry spicules in Figure \ref{fig:hyd}~(B). 
+
+From these experiments, we do not see any difference in the Young's modulus or bending failure strain between the dry spicules and the spicules that have been soaked in seawater. Bias-corrected accelerated (BCa) confidence intervals (CI) using 10,000 bootstrapped samples indicated no reliable difference in the means of the Young's moduli of the wet and dry spicules (upper: 3.0 GPa; lower: -4.5 GPa). Furthermore, a two-sided $t$-test for independent samples (equal variances not assumed) also indicated no significant difference in their means (degrees of freedom=12, $t$=0.05, $p$=0.96). Similar results were found when comparing the bending failure strains using both BCa CI (upper: 0.0012; lower: -0.0034) and the t-test (degrees of freedom=12, $t$=0.97, $p$=0.35). From these results we conclude that soaking the spicules in water prior to testing them does not appear to affect their Young's modulus and bending failure strain. Based on these results, we speculate that the toughness properties of the spicules also would not change after being soaked in water.
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Details of the computational mechanics model used to compute fracture initiation toughness}
+\label{sec:Vextmethod}
+
+\subsection{Model geometry}
+We describe the geometry of the model using the orthonormal set of Cartesian basis vectors $\{\ex,\ey,\ez\}$, shown in Figure \ref{fig:FEA} (A), and their corresponding Cartesian coordinates $\{x_1,x_2,x_3\}$. The origin of this coordinate system is $\mathcal{O}$.
+
+The \EA spicules have a relatively constant diameter. Therefore, we modeled each of them as a cylinder of length $L$ and cross-sectional diameter $D$. To reduce computational cost, we modeled one quarter of each specimen for which $x_1 \in [0,L/2]$ and $x_3\leq 0$ (see Figure \ref{fig:FEA} (A)). Thus, the domain of the model for an \EA spicule is 
+%
+\[\mathcal{B} = \left\{(x_1,x_2,x_3) \in \mathbb{R}^3 \; : \; 0 \leq x_1 \leq \frac{L}{2}, \; x_3 \leq 0, \; x_2^2+x_3^2\leq \frac{D^2}{4}\right\}.\]
+
+The \TA spicules, on the other hand, are tapered along their length. It has been shown that their shape is well described by the profile of the Clausen column \cite{monn2017new}. However, in order to facilitate preparing the CAD model for our computational analysis, we modeled the \TA spicules' shapes as ellipsoids, which is a close approximation to the Clausen column's shape. In each experiment, we assumed that the spicule's geometry was symmetric about the cross-section located beneath the wedge. Consequently, we took the diameter that we measured, $D$, to be the ellipsoid's minor axis.  We did not measure the length (major axis), $L_s$, of each \TA spicule. However, it has been shown that the \TA spicule's aspect ratio $\lambda=L_s/D$ is relatively constant with a mean value of 53.6 and a standard deviation of 8.7 ($N$=31)~\cite{monn2017new}. Therefore, for all of the \TA spicules that we mechanically tested, we assumed that $\lambda$=53.6. Again, we modeled one quarter of the specimen to reduce computational cost and therefore the domain of the model for a \TA spicule is 
+%
+\[\mathcal{B} = \left\{(x_1,x_2,x_3) \in \mathbb{R}^3 \; : \; 0 \leq x_1 \leq \frac{L}{2}, \; x_3 \leq 0, \; \frac{(x_1-L/2)^2}{\lambda^2}+x_2^2+x_3^2\leq \frac{D^2}{4}\right\}.\]
+
+
+\subsection{Boundary conditions}
+We denote the components of the displacement vector, $\bm{u}$, in the $\ei$ basis as $u_i$, $i \in \{1,2,3\}$. We did not include the notch in the geometry of the model explicitly. Rather, we model the effect of a notch of length $a$ and a crack of length $\Delta a$ by setting $u_1=0$ on $\partial \mathcal{B}_1$ (see Figure \ref{fig:FEA} (B)), where
+\begin{equation}
+\label{eq:BC1}
+    \partial \mathcal{B}_1=\left\{(x_1,x_2,x_3) \in \mathcal{B} \; : \; x_1=\frac{L}{2}, \; x_2 \geq a+\Delta a-\frac{D}{2}\right\}.
+\end{equation}
+%
+This leaves the region of $\mathcal{B}$ for which $x_1=L/2$ and $x_2 < a+\Delta a-D/2$ traction free, as would be the case for the faces of a notch or crack. We measured the notch length $a$ for each spicule that we mechanically tested from micrographs taken during the FIB notching procedure (see Section \ref{sec:res}). The values of $a$ are shown in Tables \ref{tab:EAdata} and \ref{tab:TAdata}.
+
+The other boundary conditions in our model (see Figure \ref{fig:FEA} (A), (B)) are
+%
+\begin{alignat}{2}
+    u_1=u_2=u_3&=0 \qquad&&\text{on}\quad \partial \mathcal{B}_2, \label{eq:BC2}\\
+    %
+    u_3&=0 \qquad&&\text{on}\quad \partial \mathcal{B}_3,\label{eq:BC3}\\
+    %
+    u_2&=-w_{sim} \qquad&&\text{on}\quad \partial \mathcal{B}_4,\label{eq:BC4}
+\end{alignat}
+%
+where $w_{sim}$ is the applied displacement and
+%
+\begin{align}
+    \partial\mathcal{B}_2&=\{(x_1,x_2,x_3) \in \mathcal{B} \; : \; x_1=0\},\\
+    %
+    \partial\mathcal{B}_3&=\{(x_1,x_2,x_3) \in \mathcal{B} \; : \; x_3=0\},\\
+    %
+    \partial\mathcal{B}_4&=\left\{(x_1,x_2,x_3) \in \mathcal{B} \; : \; x_1=\frac{L}{2}, \; x_2^2+x_3^2=\frac{D^2}{4}, \; x_2 >0.9 \frac{D}{2}\right\}.
+\end{align}
+
+
+\subsection{Constitutive model}
+Before crack growth initiation, the $F$--$w_0$ response of both the \EA and \TA spicules is linear (see e.g., Figure \ref{fig:test} (C), (D)). This suggests that both the \EA and \TA spicules behave in a linear elastic fashion until the onset of crack growth.
+%
+The \TA spicules do not appear to possess any internal architecture (see Figure \ref{fig:fract} (B) and \ref{fig:EATA} (F)). Based on this observation we assume that they are elastically homogeneous and therefore model them as homogeneous linear elastic solids such that
+%
+\begin{equation}
+\label{eq:LE}
+    \sigma_{ij}=\frac{E}{1+\nu}\left(\epsilon_{ij}+\frac{\nu}{1-2\nu}\delta_{ij}\sum_{k=1}^{3}\epsilon_{kk}\right),
+\end{equation}
+%
+where $\sigma_{ij}$ and $\epsilon_{ij}$, $i,\;j\in\{1,2,3\}$ are, respectively, the components of the Cauchy stress tensor, $\bm{\sigma}$, and the infinitesimal strain tensor, $\bm{\epsilon}$, in the dyadic basis $\ei \otimes \ej$. The strain components can be computed from the displacements as $\epsilon_{ij}=(\partial u_i/\partial x_j+\partial u_j/\partial x_i)/2$, $i,\;j\in\{1,2,3\}$. The symbol $\delta_{ij}$ is the Kronecker delta, which is equal to unity when $i=j$ and is zero otherwise. The parameters $E$ and $\nu$ are the Young's modulus and Poisson's ratio, respectively.
+
+
+While the \EA spicules are clearly not homogeneous, we model them as homogeneous linear elastic solids as well. Because of this modeling assumption, the values of $R(0)$ that we obtain for the \EA spicules should be considered ``effective'' fracture initiation toughness.
+
+For each \EA and \TA spicule that we mechanically tested, we measured $D$ and $L$ from micrographs (see Tables \ref{tab:EAdata} and \ref{tab:TAdata}) and computed the compliance of the completely failed specimen $C_f=w_f/F_f$ from the $F$--$w_0$ data (see Tables \ref{tab:EAdata} and \ref{tab:TAdata}). A completely failed spicule can be modeled as two cantilevers that share the load equally. In this completely failed state, the effective Young's modulus can be computed using Euler-Bernoulli beam theory as $E=L^3/48C_f I$, where $I=\pi D^4/64$.  We did not measure the Poisson's ratio $\nu$ and took its value to be 0.2, which is typical for glass \cite{davidge1968effective}.
+
+\subsection{Equilibrium equations and solution}
+In equilibrium, the Cauchy momentum equation requires that 
+%
+\begin{equation}
+\label{eq:eql}
+    \mathrm{Div}(\bm{\sigma}) = 0 \quad \text{on} \quad \mathcal{B},
+\end{equation}
+%
+where $\mathrm{Div}(\cdot)$ is the divergence operator.
+
+We solved Equation~\eqref{eq:LE} and \eqref{eq:eql} subject to the boundary conditions Equation~\eqref{eq:BC1}--\eqref{eq:BC4} for a given value of $\Delta a$ using finite element methods \cite{hughes2012finite}. A representative finite element mesh is shown in Figure \ref{fig:FEA} (C). The mesh consists of constant strain tetrahedron elements. Figure \ref{fig:FEA2} (A), (B) shows contours of the $\sigma_{11}$ component of the Cauchy stress obtained from the finite element calculations.
+
+\subsection{Calculation of fracture initiation toughness using the computational mechanics model}
+The experiment described in Section \ref{sec:res} consists of a specimen with a crack placed in series with a linear spring (see e.g., Figure \ref{fig:test} (A)). We denote the elastic compliance of this spring as $C_m$ and the elastic compliance of the specimen as $C(\Delta a)$, where $\Delta a$ is the length of the crack.
+%
+By moving the translation stage, we apply a displacement $w_{s}$ to the spring-specimen system. This consequently results in a displacement of the specimen given by
+%
+\begin{equation}
+\label{eq:wc}
+    w_0(\Delta a;\,w_s)=\frac{w_s C(\Delta a)}{C_m+C(\Delta a)}.
+\end{equation}
+%
+
+For a fixed $w_s$, the potential energy of the system is
+%
+\begin{equation}
+    \label{eq:PEsys}
+     \Pi(\Delta a;\,w_s)=\frac{w_s^2}{2}\frac{1}{C_m+C(\Delta a)}
+ \end{equation}
+%
+By substituting Equation \eqref{eq:wc} and \eqref{eq:PEsys} into Equation \eqref{eq:R0}, the fracture initiation toughness is given by
+%
+\begin{equation}
+    \label{eq:Gexp}
+    R(0)=\frac{1}{2}\left(\frac{w_c}{C(0)}\right)^2\frac{1}{2\sqrt{a(D-a)}}\left.\frac{dC(\Delta a)}{d\Delta a}\right\vert_{\Delta a=0},
+\end{equation}
+%
+where $w_c$ is the value of $w_0$ at the initiation of crack growth.
+
+
+In contrast to the experiment described above, our computational mechanics model is displacement controlled and therefore the machine compliance $C_m=0$. We denote the applied displacement in the simulation as $w_{sim}$ and simplify Equation \eqref{eq:PEsys} to be
+%
+\begin{equation}
+    \label{eq:PEsys2}
+    \Pi_{sim}(\Delta a;\,w_{sim})=\frac{w_{sim}^2}{2C(\Delta a)}.
+\end{equation}
+%
+Computing the derivative of $\Pi_{sim}$ in Equation \eqref{eq:PEsys2} gives us
+%
+\begin{equation}
+    \label{eq:Pideriv}
+    \left.\frac{d \Pi_{sim}(\Delta a;\,w_{sim})}{d\Delta a}\right\vert_{\Delta a=0}=-\frac{1}{2}\left(\frac{w_{sim}}{C(0)}\right)^2\left.\frac{dC(\Delta a)}{d\Delta a}\right\vert_{\Delta a=0}.
+\end{equation}
+
+Finally, combining Equation \eqref{eq:Gexp} and \eqref{eq:Pideriv} we find that
+%
+\begin{equation}
+    \label{eq:R0comp}
+    R(0)=-\left(\frac{w_c}{w_{sim}}\right)^2\frac{1}{2\sqrt{a(D-a)}}\left.\frac{d\Pi_{sim}(\Delta a;\,w_{sim})}{d\Delta a}\right \vert_{\Delta a=0}.
+\end{equation}
+%
+To compute $R(0)$ using Equation~\eqref{eq:R0comp} we must first compute $d\Pi_{sim}/d\Delta a\vert_{\Delta a=0}$ from the computational mechanics model described above.
+
+For each spicule that we mechanically tested we generated four models with different crack lengths $\Delta a= n h$, where $h=0.08D$ and $n \in \{-2,-1,1,2\}$. As we varied the crack length $\Delta a$, we kept the applied displacement fixed at $w_{sim}$. For each model we solved for the equilibrium displacement field using finite element methods~\cite{hughes2012finite} as described in the preceding sections. We computed the potential energy of the system as
+%
+\begin{equation}
+    \label{eq:Pi}
+    \Pi_{sim}(\Delta a;\;w_{sim})=4\int_{\mathcal{B}}\frac{E}{2(1+\nu)}\sum_{i=1}^{3}\sum_{j=1}^{3}\left[\frac{1}{2}\left(\frac{\partial u_i}{\partial x_j}\frac{\partial u_i}{\partial x_j}+\frac{\partial u_i}{\partial x_j}\frac{\partial u_j}{\partial x_i}\right)+\frac{\nu}{1-2\nu}\frac{\partial u_i}{\partial x_i}\frac{\partial u_j}{\partial x_j} \right]d\mathcal{B}.
+\end{equation}
+%
+The factor of four in front of the integral in Equation \eqref{eq:Pi} comes from the fact that our computational mechanics model consists of one quarter of the full specimen. Values of $\Pi_{sim}(\Delta a;\;w_{sim})$ for a representative spicule are shown in Figure \ref{fig:FEA2} (C). Finally, the derivative $d\Pi_{sim}/d \Delta a$ in Equation~\eqref{eq:R0comp} was computed numerically using the central finite difference method such that
+%
+\begin{equation}
+\label{eq:deriv1}
+\left.\frac{d\Pi_{sim}(\Delta a;\;w_{sim})}{d \Delta a}\right\vert_{\Delta a=0}= \frac{\Pi_{sim}(-2h;\;w_{sim})-8\Pi_{sim}(-h;\;w_{sim})+8\Pi_{sim}(h;\;w_{sim})-\Pi_{sim}(2h;\;w_{sim})}{12h}+ O(h^4),
+\end{equation}
+%
+where $O$ is the Landau symbol ``big-O.''
+
+Using this procedure we computed $R(0)$ from Equation~\eqref{eq:R0comp} for each spicule that we mechanically tested. The values of $R(0)$ are shown in Tables \ref{tab:EAdata} and \ref{tab:TAdata}.
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Details of the variational fracture method}
+\label{sec:VFmethod}
+\subsection{Variational fracture theory}
+Motivated by the work of Ambrosio and Tortorelli ~\cite{ambrosio_1990a,ambrosio_1990b},  the variational fracture theory (VFT) was put forward by Francfort and Marigo \cite{francfort_1998} to model the evolution of cracks in brittle solids.
+
+In it, the solution displacement field, $\bs{u}$, and the  crack (or system of cracks), $\Gamma$, are postulated to be those that globally minimize the system's total potential energy. However, from what is understood and observed about the  physics and mechanics of fracture, it is more reasonable to postulate that the experimentally observed $(\bs{u},\Gamma)$ are only local minimizers of the total potential energy. There are also several other limitations in VFT about what type of fracture scenarios it can model. Despite  the over-constraints on the solution $(\bs{u},\Gamma)$ in the VFT and its other limitations, it has been shown that its  predictions of crack paths are surprisingly close to experimental observations~\cite{borden_2012,bourdin2000numerical}. Considering that, we used the VFT to study the effect of a weak interface's geometry on its ability to enhance the work of fracture (see Section~\ref{sec:discussion}). 
+ 
+It is typically quite challenging to solve for $(\bs{u},\Gamma)$ in the VFT, even using numerical methods. In order to obtain a numerical solution, the VFT is regularized (see Bourdin et. al \cite{bourdin2000numerical} for details) so that the total energy is 
+%
+  \begin{align}\label{Free_energy}
+	E_{\ell}(\bs{u},d) = \int_\mathcal{B} (1-d)^2\Psi_0(\bs{x},\bs{u}) \ d\mathcal{B} + \int_\mathcal{B} \frac{G_c}{2} \left(\frac{d(\bs{x})^2}{\ell} + \ell~ \lVert\bm{\nabla}d(\bs{x})\rVert^2\right) \ d\mathcal{B},  
+\end{align}
+%
+The first term on the right hand side of Equation~\eqref{Free_energy} is the strain energy stored in the solid, while the second term is the energy of the new surface area created by the growth of the crack. In Equation~\eqref{Free_energy}, $\Psi_0$ is the strain energy density, $\bs{x}$ is the position vector of a material point in the solid $\mathcal{B}$, and $\bs{u}$ is the displacement field. The operator $\lVert \cdot \rVert$ is the Euclidean 2-norm, and $\bm{\nabla}(\cdot)$ is the gradient operator with respect to $\bs{x}$. For a brittle material, the crack growth resistance, $R$ is constant and we take its value to be $G_c$.
+
+The crack is represented by the scalar valued field $d$, termed the ``phase field'' or the ``damage field'', which takes values between zero and unity. The field $d$ indicates the extent of damage in the material such that at $d=1$ the material is fully damaged  and at $d=0$ it is completely intact. Therefore, the crack is the set of points in $\mathcal{B}$ for which $d$ is close to unity. The parameter $\ell$ is called the regularization parameter. It has been shown  that the minimizers of the energy given by Equation~\eqref{Free_energy} converge to the minimizers of the energy in the VFT theory as $\ell \to 0$ (see \cite{chambolle_2005,ambrosio_1990a,bourdin_2008} for details). 
+ 
+A necessary condition for $\bs{u}$ and $d$ (which is a representation of $\Gamma$) to be  minimizers of $E_{\ell}$ is that they satisfy Equation \eqref{eq:eql}, in which  $\bm{\sigma}=(1-d)^2\partial\Psi_0)/\partial \bm{\epsilon}$, and 
+%
+\begin{equation}
+	G_c ~\ell~ \bm{\nabla} \cdot \left(\bm{\nabla} d\right) -  \frac{G_c~ d}{\ell} = -2(1-d) \Psi_0,  \qquad \text{on} \quad \mathcal{B}. \label{damage_pde}
+\end{equation} 
+%
+subject to the boundary conditions
+%
+\begin{subequations}\label{Bcs}
+	\begin{align}
+	\bs{u} = \hat{\bs{u}}, \qquad &\text{on} \quad \partial\mathcal{B}_u,\\
+	\bm{\sigma} \bs{n} = \bs{t}, \qquad &\text{on} \quad \partial\mathcal{B}_t,\\
+	\bm{\nabla} d \cdot \bs{n} = 0, \qquad &\text{on} \quad \partial\mathcal{B},
+	\end{align}
+\end{subequations}
+%
+where $\partial\mathcal{B}$ is the boundary of the solid, $\partial\mathcal{B}_u$ is the part of $\partial\mathcal{B}$ on which displacements $\hat{\bs{u}}$ are prescribed, and $\partial\mathcal{B}_t$ is the rest of the boundary on which tractions $\bs{t}$ are prescribed. The symbol $\bs{n}$ is the outward normal vector on $\partial\mathcal{B}$. 
+
+We solved Equation~\eqref{eq:eql} and \eqref{damage_pde}, subject to the boundary conditions given by Equation~\eqref{Bcs} using the finite element-based procedure detailed in~\cite{miehe_2010}. The results from this calculation  are shown in Figure~\ref{fig:VF}.
+
+\subsection{Regularized variational fracture model for interfaces}
+In this work, we modified the regularized VFT (RVFT) proposed by \cite{bourdin2000numerical} to allow us to model interfaces with different fracture toughnesses within a solid. We did so by spatially varying $G_c$ such that $G_c = G_c(\bs{x})$. However, the difference between the dimensionality of an interface (a subset of $\mathbb{R}^2$) and a solid (a subset of $\mathbb{R}^3$) results in the same problem that arises when modeling cracks in the VFT. We overcame this problem using a similar regularization strategy as was used in RVFT. Namely, we replaced the interface with a thin interfacial region of thickness $m \ell$, where $m\in\mathbb{R}>0$ is a fixed constant, so that as $\ell \to 0$ the interfacial region becomes vanishingly thin. We chose $G_c(\bs{x})$ to be a piecewise continuous function so that $G_c = G_I$ in the interfacial region, and $G_c = G_b$ in the bulk material.  In the simulations whose results we present in Section \ref{sec:discussion} we take $m=2$ and $\ell=0.05$ mm.
+
+To reduce the computational cost of our virtual experiments, we assumed that the crack path was symmetric about $x_1 = L/2$ and $x_3 = 0$ (see Figure \ref{fig:VF}). Therefore, we modeled one quarter of the geometry for which $x_1 \in [0,L/2]$ and $x_3\leq 0$ and imposed the boundary conditions $u_1 = 0$ at $x_1 = L/2$ and $u_3 = 0$ at $x_3 = 0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% \section*{Supplementary Figures and Tables}
+
+ 	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../Figures/FigureHyd/FigureA3_V1.pdf}
+	\caption{Effect of moisture on the mechanical properties of \EA spicules. (A) A histogram of the effective Young's modulus, $E$, for 33 dry \EA (light blue) and 11 wet \EA (green) spicules. (B) A histogram of the bending failure strain, $\epsilon_f$, for 33 dry \EA (light blue) and 11 wet \EA (green) spicules.}
+	\label{fig:hyd}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../Figures/FigureFEA/FigureA2_V7.pdf}
+	\caption{Computational mechanics model of the spicules. (A) Geometry of the \EA model consisting of one quarter of the specimen. The Cartesian basis vectors and origin of the Cartesian coordinate system $\mathcal{O}$ are shown. (B) A view of the model's cross section at $x_1=L/2$ showing the boundaries $\partial \mathcal{B}_1$ and $\partial \mathcal{B}_4$. (C) The deformed finite element mesh of a representative \EA model.}
+	\label{fig:FEA}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../Figures/FigureFEA2/FigureA3_V1.pdf}
+	\caption{Results of computational mechanics model. (A) Contours of $\sigma_{11}$ on the surface $\partial \mathcal{B}_3$ (see Figure \ref{fig:FEA} (A)) shown in the deformed configuration for a representative \EA model. The displacements are scaled by a factor of 4. (B) A magnified view of the $\sigma_{11}$ contours near $x_1=L/2$. The largest tensile stress (red) occurs near the tip of the crack. (C) The values of $\Pi_{sim}$ for different $\Delta a$ obtained from the computational mechanics model for a representative \EA spicule. This data is used to compute the spicule's fracture initiation toughness in Section \ref{sec:Gc}. We did not compute the value of $\Pi$ at $\Delta a=0$ since it is not required for computing the energy release rate (see Equation~\eqref{eq:deriv1}).}
+	\label{fig:FEA2}
+	\end{figure}
+
+\singlespacing
+\putbib[refs]
+\end{bibunit} 
+ 
+ 
+ 
+ 
+\clearpage
+\thispagestyle{empty}
+\newgeometry{margin=1cm} % modify this if you need even more space
+\begin{landscape}
+
+\begin{table}
+\small
+\centering
+\caption{\EA spicule data. $L$ is the length; $D$ is the diameter of the cross-section midway along the length; $a$ is the notch length; $r_n$ is the notch root radius; $\alpha=a/D$ is the dimensionless notch length; $(w_c,\;F_c)$ and $(w_f,\;F_f)$ are the $(w_0,F)$ points at pop-in and complete failure, respectively; $R(0)$ is the fracture initiation toughness; and $\left< R \right>$ is the average crack growth resistance.}
+\label{tab:EAdata}
+\ra{1.25}
+\begin{threeparttable}[t]
+\begin{tabular}{rllllllllllllll}
+\toprule
+& \multicolumn{5}{c}{Specimen dimensions (see Figure \ref{fig:notch})} & & \multicolumn{4}{c}{$F$ and $w_0$ measurements (see Figure \ref{fig:test})} & & \multicolumn{2}{c}{Toughness (see Figure \ref{fig:R})} \\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-14}
+Specimen ID & $L$ [$\mu$m] & $D$ [$\mu$m] & $a$ [$\mu$m] & $r_n$ [nm] & $\alpha$ & & $w_c$ [$\mu$m] & $F_c$ [mN] & $w_f$ [$\mu$m] & $F_f$ [mN] & & $R(0)$ [Jm$^{-2}$] & $\left< R \right>$ [Jm$^{-2}$] \\
+\midrule
+Ea1 & 604.8 & 50.75 & 16.13 &   25 & 0.32 &  &  3.6 & 13.37 & 45.7 & 52.08 &  & 7.62 &241.96 \\ 
+Ea2 & 813.0 & 37.44 & 10.83 &   84 & 0.29 &  &  6.9 & 4.54 & 42.3 & 9.40 &  & 7.94 &75.35 \\ 
+Ea3 & 814.6 & 36.57 & 9.19 &  \textcolor{red}{251}$^\text{a)}$ & 0.25 &  & 35.8 & 24.02 & 40.1 & 9.04 &  & --- &---$^\text{c)}$\\ 
+Ea4 & 820.5 & 23.46 & 4.31 &   24 & 0.18 &  &  9.9 & 1.23 & 76.1 & 2.60 &  & 2.77 &---$^\text{c)}$\\ 
+Ea5 & 813.0 & 25.14 & 10.13 &   36 & 0.40 &  &  8.6 & 1.07 & 27.7 & 1.01 &  & 6.28 &28.28 \\ 
+Ea6 & 814.6 & 21.60 & 13.81 &   77 & 0.64 &  &  8.8 & 0.54 & 28.0 & 0.72 &  & 9.30 &23.32 \\ 
+Ea7 & 820.5 & 47.07 & 19.05 &  \textcolor{red}{300}$^\text{a)}$ & 0.40 &  &  1.7 & 8.26 & 38.2 & 27.95 &  & --- &118.68 \\ 
+Ea8 & 813.0 & 46.79 & 14.90 &  \textcolor{red}{372}$^\text{a)}$ & 0.32 &  &  2.5 & 11.87 & 41.0 & 28.07 &  & --- &169.99 \\ 
+Ea9 & 808.8 & 46.50 & 14.92 &  120 & 0.32 &  &  2.3 & 7.60 & 47.6 & 28.91 &  & 1.66 &101.20 \\ 
+Ea10 & 808.8 & 27.74 & 7.60 &  \textcolor{red}{229}$^\text{a)}$ & 0.27 &  & 28.3 & 9.81 & 39.9 & 3.44 &  & --- &---$^\text{c)}$\\ 
+Ea11 & 813.0 & 32.81 & 15.82 &   39 & 0.48 &  &  3.7 & 1.41 & 28.6 & 3.53 &  & 2.61 &25.59 \\ 
+Ea12 & 820.5 & 31.33 & 17.09 &   69 & 0.55 &  & ---$^\text{b)}$ & --- &33.0 & 2.86 & & --- &63.25 \\ 
+Ea13 & 783.3 & 22.94 & 7.22 &   39 & 0.31 &  &  4.7 & 0.81 & 21.7 & 0.88 &  & 1.62 &---$^\text{c)}$\\ 
+Ea14 & 814.6 & 45.65 & 22.29 &   45 & 0.49 &  &  5.9 & 6.51 & 49.1 & 17.73 &  & 10.76 &136.12 \\ 
+Ea15 & 814.6 & 45.51 & 21.62 &   84 & 0.47 &  & ---$^\text{b)}$ & --- &38.8 & 15.89 & & --- &118.86 \\ 
+Ea16 & 808.8 & 45.59 & 21.34 &   79 & 0.47 &  & ---$^\text{b)}$ & --- &34.6 & 14.80 & & --- &---$^\text{c)}$\\ 
+Ea17 & 775.2 & 51.97 & 14.86 &   90 & 0.29 &  &  2.1 & 4.89 & 72.8 & 54.02 &  & 1.44 &141.87 \\ 
+Ea18 & 783.3 & 57.76 & 18.15 &  178 & 0.31 &  &  2.1 & 7.33 & 52.5 & 53.60 &  & 1.86 &170.28 \\ 
+Ea19 & 790.5 & 62.61 & 18.55 &   84 & 0.30 &  &  2.3 & 12.01 & 63.2 & 76.14 &  & 1.94 &238.54 \\ 
+Ea20 & 820.5 & 64.40 & 23.36 &   89 & 0.36 &  &  1.9 & 14.19 & 97.6 & 153.63 &  & 1.91 &383.81 \\ 
+Ea21 & 814.6 & 70.42 & 24.44 &   44 & 0.35 &  &  2.6 & 20.28 & 68.5 & 139.05 &  & 3.76 &335.33 \\ 
+Ea22 & 779.6 & 43.16 & 17.26 &   52 & 0.40 &  &  1.7 & 2.54 & 30.7 & 15.16 &  & 1.11 &---$^\text{c)}$\\ 
+Ea23 & 813.0 & 50.83 & 19.82 &  118 & 0.39 &  &  2.6 & 7.58 & 82.9 & 49.56 &  & 2.15 &278.43 \\ 
+Ea24 & 814.6 & 53.12 & 14.98 &   57 & 0.28 &  &  2.9 & 8.95 & 67.0 & 48.87 &  & 2.59 &132.91 \\ 
+Ea25 & 775.2 & 57.24 & 32.40 &  112 & 0.57 &  & ---$^\text{b)}$ & --- &46.8 & 55.94 & & --- &258.58 \\ 
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a)] {\footnotesize Red text indicates values of $r_n$ that exceed the threshold for valid measurement of $R(0)$ as per Section~\ref{sec:Gc};
+\item[b)] Values of $w_c$ and $F_c$ could not be obtained for this specimen since we could not reliably identify the pop-in event.
+\item[c)] In this specimen, the value of $\Delta F_c$ exceeded 15\% of the value of $F_c$ and therefore we did not consider crack growth to be predominantly stable.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\end{landscape}
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\newgeometry{margin=1cm} % modify this if you need even more space
+\begin{landscape}
+
+\begin{table}
+\small
+\centering
+\caption{\TA spicule data. $L$ is the length; $D$ is the diameter of the cross-section midway along the length; $a$ is the notch length; $r_n$ is the notch root radius; $\alpha=a/D$ is the dimensionless notch length; $(w_c,\;F_c)$ and $(w_f,\;F_f)$ are the $(w_0,F)$ points at pop-in and complete failure, respectively; $R(0)$ is the fracture initiation toughness; and $\left< R \right>$ is the average crack growth resistance.}
+\label{tab:TAdata}
+\ra{1.25}
+\begin{threeparttable}
+\begin{tabular}{rllllllllllllll}
+\toprule
+& \multicolumn{5}{c}{Specimen dimensions (see Figure \ref{fig:notch})} & & \multicolumn{4}{c}{$F$ and $w_0$ measurements (see Figure \ref{fig:test})} & & \multicolumn{2}{c}{Toughness (see Figure \ref{fig:R})} \\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-14}
+Specimen ID & $L$ [$\mu$m] & $D$ [$\mu$m] & $a$ [$\mu$m] & $r_n$ [nm] & $\alpha$ & & $w_c$ [$\mu$m] & $F_c$ [mN] & $w_f$ [$\mu$m] & $F_f$ [mN] & & $R(0)$ [Jm$^{-2}$] & $\left< R \right>$ [Jm$^{-2}$] \\
+\midrule
+Ta1 & 775.2 & 23.67 & 5.72 &  107 & 0.24 &  &  4.4 & 0.93 & 13.7 & 0.43 &  & 0.81 &---$^\text{c)}$\\ 
+Ta2 & 783.3 & 28.00 & 13.06 &  \textcolor{red}{365}$^\text{a)}$ & 0.47 &  &  8.9 & 1.60 & 25.1 & 2.09 &  & --- &---$^\text{c)}$\\ 
+Ta3 & 790.5 & 30.34 & 12.71 &  129 & 0.42 &  &  6.6 & 0.60 & 27.1 & 0.66 &  & 1.66 &---$^\text{c)}$\\ 
+Ta4 & 601.3 & 43.61 & 11.17 &   63 & 0.26 &  &  3.1 & 8.66 & 41.2 & 23.64 &  & 3.93 &130.89 \\ 
+Ta5 & 601.3 & 36.17 & 15.92 &   50 & 0.44 &  &  4.7 & 4.26 & 34.0 & 10.03 &  & 10.46 &---$^\text{c)}$\\ 
+Ta6 & 597.2 & 34.69 & 8.29 &   35 & 0.24 &  &  3.1 & 3.46 & 40.6 & 12.77 &  & 3.16 &---$^\text{c)}$\\ 
+Ta7 & 604.8 & 24.05 & 8.69 &   79 & 0.36 &  &  2.6 & 0.86 & 20.3 & 1.88 &  & 1.46 &19.55 \\ 
+Ta8 & 601.3 & 27.84 & 10.82 &   87 & 0.39 &  &  4.1 & 1.49 & 15.8 & 2.25 &  & 5.47 &---$^\text{c)}$\\ 
+Ta9 & 603.8 & 31.13 & 10.67 &   28 & 0.34 &  &  2.1 & 1.70 & 24.1 & 5.89 &  & 1.62 &---$^\text{c)}$\\ 
+Ta10 & 597.2 & 37.37 & 9.37 &   82 & 0.25 &  &  3.2 & 5.10 & 31.0 & 11.79 &  & 3.70 &69.94 \\ 
+Ta11 & 604.8 & 37.56 & 14.23 &  127 & 0.38 &  &  2.9 & 3.83 & 34.5 & 14.94 &  & 4.82 &84.65 \\ 
+Ta12 & 597.2 & 34.45 & 7.85 &  \textcolor{red}{216}$^\text{a)}$ & 0.23 &  &  3.9 & 3.94 & 27.1 & 10.92 &  & --- &29.91 \\ 
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a)] {\footnotesize Red text indicates values of $r_n$ that exceed the threshold for valid measurement of $R(0)$ as per Section~\ref{sec:Gc};
+\item[b)] Values of $w_c$ and $F_c$ could not be obtained for this specimen since we could not reliably identify the pop-in event.
+\item[c)] In this specimen, the value of $\Delta F_c$ exceeded 15\% of the value of $F_c$ and therefore we did not consider crack growth to be predominantly stable.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\end{landscape}
+\restoregeometry
+
+\end{document}

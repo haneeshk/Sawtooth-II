@@ -1,0 +1,745 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/haneeshkesari/Documents/
+\textclass article
+\begin_preamble
+\usepackage{amssymb,amsmath,yhmath, amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{bm}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 200 200
+\font_tt_scale 200 200
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\html_math_img_scale 2.5
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{X}_1(
+\backslash
+xi, 
+\backslash
+eta)=N^{a}(
+\backslash
+xi,
+\backslash
+eta)X^{a}_{1}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{X}_{I,
+\backslash
+alpha}(
+\backslash
+xi, 
+\backslash
+eta)=N^{a}_{,
+\backslash
+alpha}(
+\backslash
+xi,
+\backslash
+eta)X^{a}_{I}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{X}_2(
+\backslash
+xi, 
+\backslash
+eta)=N^{a}(
+\backslash
+xi,
+\backslash
+eta)X^{a}_{2}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N^{1}=
+\backslash
+frac{1}{4}(1-
+\backslash
+xi)(1-
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N^{2}=
+\backslash
+frac{1}{4}(1+
+\backslash
+xi)(1-
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N^{3}=
+\backslash
+frac{1}{2}(1+
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+boldsymbol{x}=
+\backslash
+boldsymbol{
+\backslash
+varphi}_{
+\backslash
+tau}(
+\backslash
+boldsymbol{X})$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+boldsymbol{X}(X_1,X_2)=X_1
+\backslash
+boldsymbol{E}_1+X_2
+\backslash
+boldsymbol{E}_2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+boldsymbol{x}(X_1,X_2)=x_1(X_1,X_2)
+\backslash
+boldsymbol{e}_1+x_2(X_1,X_2)
+\backslash
+boldsymbol{e}_2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}^{a}_1(
+\backslash
+xi,
+\backslash
+eta)=N^{a}(
+\backslash
+xi,
+\backslash
+eta)x^{a}_{1}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}^{a}_2(
+\backslash
+xi,
+\backslash
+eta)=N^{a}(
+\backslash
+xi,
+\backslash
+eta)x^{a}_{2}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$F_{iJ}=
+\backslash
+frac{
+\backslash
+partial x_{i}}{
+\backslash
+partial X_j}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_{i,
+\backslash
+xi}(
+\backslash
+xi,
+\backslash
+eta)=N^{a}_{,
+\backslash
+xi}(
+\backslash
+xi,
+\backslash
+eta)x^{a}_i$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_{i,
+\backslash
+eta}(
+\backslash
+xi,
+\backslash
+eta)=N^{a}_{,
+\backslash
+eta}(
+\backslash
+xi,
+\backslash
+eta)x^{a}_i$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_i(
+\backslash
+xi,
+\backslash
+eta)=x_i(
+\backslash
+hat{X}_1(
+\backslash
+xi, 
+\backslash
+eta),
+\backslash
+hat{X}_2(
+\backslash
+xi,
+\backslash
+eta))$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_{i,
+\backslash
+xi}(
+\backslash
+xi,
+\backslash
+eta)=x_{i,J}(
+\backslash
+hat{X}_1(
+\backslash
+xi, 
+\backslash
+eta),
+\backslash
+hat{X}_2(
+\backslash
+xi,
+\backslash
+eta))
+\backslash
+hat{X}_{J,
+\backslash
+xi}(
+\backslash
+xi, 
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_{i,
+\backslash
+xi}(
+\backslash
+xi,
+\backslash
+eta)=F_{i,J}(
+\backslash
+hat{X}_1(
+\backslash
+xi, 
+\backslash
+eta),
+\backslash
+hat{X}_2(
+\backslash
+xi,
+\backslash
+eta))
+\backslash
+hat{X}_{J,
+\backslash
+xi}(
+\backslash
+xi, 
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_{i,
+\backslash
+xi}(
+\backslash
+xi,
+\backslash
+eta)=
+\backslash
+hat{F}_{i,J}(
+\backslash
+xi, 
+\backslash
+eta)
+\backslash
+hat{X}_{J,
+\backslash
+xi}(
+\backslash
+xi, 
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_{i,
+\backslash
+alpha}(
+\backslash
+xi,
+\backslash
+eta)=
+\backslash
+hat{F}_{i,J}(
+\backslash
+xi, 
+\backslash
+eta)
+\backslash
+hat{X}_{J,
+\backslash
+alpha}(
+\backslash
+xi, 
+\backslash
+eta)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

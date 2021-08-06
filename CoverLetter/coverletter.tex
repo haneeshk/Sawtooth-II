@@ -1,0 +1,156 @@
+\documentclass[11pt,letterpaper]{report}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Page layout
+\usepackage{graphics,graphicx,wrapfig}
+\usepackage[letterpaper, margin=2.5 cm,
+headheight=4 cm, top= 6cm]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage{parskip}
+\setlength{\parskip}{0.5em}
+
+\usepackage{fancyhdr}
+\usepackage{bm}
+\usepackage{upgreek}
+
+
+\fancyhf{}
+\fancyhead[L]{
+\includegraphics[height=3 cm]{Brown_Letterhead.jpg}
+\\
+}
+%
+\fancyhead[C]{
+\parbox[b][3.5cm][t]{4cm}{
+\begin{flushright}
+Haneesh Kesari
+\\
+Assistant Professor
+\\
+of Engineering
+\\
+\end{flushright}
+}
+}
+%
+\fancyhead[R]{
+\parbox[b][3.5cm][t]{6cm}{
+\begin{flushleft}
+School of Engineering
+\\
+Brown University
+\\
+184 Hope Street, B\&H 612
+\\
+Providence, RI 02912
+\\
+Phone: 401-863-1418
+\\
+Email: Haneesh\_Kesari@brown.edu
+\\
+\end{flushleft}
+}
+}
+
+\fancypagestyle{plain}{
+\fancyhf{} % remove everything
+%
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+%
+\renewcommand{\footrulewidth}{0pt}
+%
+%\fancyfoot[R]{\thepage / \pageref{LastPage}}
+}
+
+
+
+\usepackage{xspace}
+\newcommand{\TA}{\textit{Ta.\@}\xspace}
+\newcommand{\EA}{\textit{Ea.\@}\xspace}
+
+\usepackage{comment}
+
+
+\begin{document}
+\pagestyle{empty}
+\thispagestyle{fancy}
+\phantom{x}
+\vspace{1em}
+
+March 23, 2021
+
+
+\vspace{2em}
+
+Regarding: Submission of original research article ``Sawtooth patterns in flexural force curves of structural biological materials are not signatures of toughness enhancement: Part II''
+
+
+\vspace{2em}
+
+Dear Editors,
+
+
+We are pleased to submit the manuscript—``Sawtooth patterns in flexural force curves of structural biological materials are not signatures of toughness enhancement: Part II”—to be considered for publication in the Journal of the Mechanical Behavior of Biomedical Materials.
+
+
+We investigate the phenomenon prevalent in flexural test data of biological materials—a  series  of  force-drop  events  that  appears  as  a  “sawtooth”  pattern  in  force-displacement  curves. This series of force-drop events has previously been tied to fracture toughness enhancement mechanisms operating in materials with lamellar architectures, like nacre.  However, we argue that such force-drop events do not always indicate fracture toughness enhancement, and hypothesize that they can also arise from other phenomena such as slip type of instabilities that occur at the test's supports.
+
+We investigate the sawtooth patterns, and our hypothesis concerning them, using both experiments and theory. We reported the experimental part of our investigation in the manuscript
+ ``Sawtooth patterns in flexural force curves of structural biological materials are not signatures of toughness enhancement: Part I." This manuscript was recently published by your journal~\cite{kochiyama2021sawtooth}. The attached manuscript contains the theoretical modeling part of our investigation, which complements the experimental results that we presented in \cite{kochiyama2021sawtooth}.
+
+
+We develop and study a mechanics model for three point bending tests. A distinguishing feature of our model is that in it the test specimen is allowed to slide at the test's supports. In contrast, in the standard Euler-Bernoulli model of the three point bending test the specimen is not allowed to slide at the test's supports. We model contact between the specimen and the test supports using the Coulomb's friction law. By choosing experimentally reasonable values for the friction coefficient, we were able to get the model's predictions to match the experimental measurements remarkably well. Additionally, on incorporating the spicules' surface roughness into the model, which we did by varying the friction coefficient along the spicule's length, its predictions can also be made to match the measured sawtooth patterns. We find that the sawtooth pattern in the model are due to slip type instabilities, which further reinforces our hypothesis, which we first put forward in~\cite{kochiyama2021sawtooth}.
+
+Our work underlines the importance of accurately discerning the source of force-drop events before connecting them with fracture toughness enhancement. We hope that our findings will motivate new investigations of structure-property relationships in materials whose lamellar architectures do
+\newgeometry{margin=2.5 cm}
+ not provide large toughness enhancements. Our work reinforces the conclusion of~\cite{monn2020lamellar}, that the lamellar architecture in spicules contribute minimally to their fracture toughness. Such observation underscores the possibility that there is yet an undiscovered function or property connected to the spicule's architecture.
+
+
+Although we discuss our new mechanics model only in the context of the flexural tests on spicules presented in Part I~\cite{kochiyama2021sawtooth}, it is applicable to other three-point bending experiments, where the specimen is capable of undergoing large deflections and/or finite slips at the test supports. We hope that our model would serve as a more general mechanics model beyond what is covered by the Euler-Bernoulli beam theory, such that it would enable experiments under less restrictive conditions compared to what is required for the application of the conventional beam theories.
+
+We believe our findings would appeal to the wide range of audience in your readership, especially from the applied/theoretical mechanics of materials and structures, experimental mechanics, bio-inspired engineering, and materials science communities. Thank you for considering our manuscript for publication.\\
+
+
+
+
+
+Sincerely,
+
+\vspace{5em}
+
+Haneesh Kesari and co-authors
+
+\newgeometry{margin=2.5 cm}
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
+
+
+\end{document}
+
+
+
+
+provides a new theoretical model for explaining the mechanical behaviors of marine sponge spicules, a type of biological composite with internal lamellar architectures, in flexural test.
+From our previous publication on the same topic, we observed sawtooth patterns in force-displacement curves of spicules in simply-supported experiments.
+In the current manuscript, noting the existence of slipping between spicules and test supports, by assuming variable coefficient of friction, we propose a model that captures sawtooth patterns in the predicted force-displacement curves using finite deformation beam theory and stability analysis of the entire loading system.
+The match between the predicted results and experimental data further validates our new interpretation of sawtooth patterns in flexural test of sponge spicules. The model can also be generalized for mechanical characterization of other structural biological materials with high aspect ratios.
+
+
+Some stiff biological materials (SBMs), such as nacre and bone, are natural layered composites that are known for having remarkable fracture toughness, even though their dominating composition is brittle ceramics.
+The intricate arrangement of sub-micron ceramic and organic phases is the key for SBMs to achieve such large enhancement in their fracture toughness.
+When conducting flexural tests on such SBMs, the operation of Cook-Gordon mechanism can manifest as sawtooth patterns in the force-displacement curves.
+
+In our previous publication on the same topic, we performed a series of flexural tests on the concentrically-layered skeletal fibers of the marine sponge \textit{Euplectella aspergillum}.
+Similar to other SBMs, we observed sawtooth patterns in the force-displacement curves.
+However, they are shown to be irrelevant to the operation of Cook-Gordon mechanism, but related to specimens' slipping on the test supports when the specimens experience large deflections.
+
+
+
+\newgeometry{margin=2.5 cm}
+
+Taking into account of the stability of the entire loading system, we provide an systematic method for numerically determining our model's prediction for the force-displacement curve that will be measured in a simply-supported experiment.
+When fitting the predicted force-displacement curves to the experimental data, we found that the fitted coefficients of friction fall within a reasonable range, thus confirming the validity of using the developed model to interpret our previous experiments.
+
+
+This work indicate that friction and machine stiffness can be important during the characterization of mechanical properties of high-aspect ratio biological structures.
+By considering not only the specimen itself but also the interaction between the specimen and experimental environment, the developed model provides a more reasonable interpretation of sawtooth patterns in flexural force curves of structural biological materials. We hope our work will motivate new investigations on the effect of external factors in mechanical tests of stiff biomedical materials

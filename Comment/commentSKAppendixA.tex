@@ -1,0 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Procedure for obtaining points on the spicules longitudinal axis from micrographs}
+\label{sec:imageproc}
+
+To measure the arc length of the segment of the spicule between the trench edges, we first had to identify a set of points $(^{i}x_1,^{i}x_2)_{i=1\ldots n}$ located on the spicule's longitudinal axis from images of the spicule's deformed configuration taken during the test (see e.g., Figure~\ref{fig:SSconfig} (\textsf{E})).
+
+Each image was converted to a grayscale image whose intensity values varied from zero (black) to unity (white). For every column of pixels in the image located between the trench edges, we obtained a list of row indices corresponding to local maxima of light intensity. We only considered maxima with whose amplitude exceeded 0.25. The largest value in this list corresponded to the column's local intensity maxima closest to the bottom of the image. The pixel coordinates, (row, column), of this point were taken to be coincident with the spicule's longitudinal axis. For columns that did not have local maxima with amplitudes greater than 0.25, we did not obtain a point on the longitudinal axis. This set of longitudinal axis points was then manually inspected to ensure that they were coincident with the spicule in the image. Finally, the row and column coordinates of the longitudinal axis points were converted to $(x_1,x_2)$ coordinates corresponding to the Cartesian basis shown in Figure~\ref{fig:slip} (\textsf{B}). The origin of this coordinate system, $\mathcal{O}$, was selected manually in the image. The locations of the axis points, $(^{i}x_1,^{i}x_2)_{i=1\ldots n}$, were converted from pixel to millimeters using a microscope slide scale.
+
+\clearpage

@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Solving the nonlinear bending-sliding model}
+\label{sec:SolvingDetials}
+
+In this section, we present our solving procedure of the ODE~\eqref{eq:Elastica} with boundary conditions~\eqref{eq:BC1} and~\eqref{eq:BC2}.
+Similar problem has been attacked by Conway~\cite{Conway1947XCIV.} using a direct integration based numerical method.
+Here we provide an analytical solution of the problem.
+
+From the free body diagram in Figure~\ref{fig:BeamSchematic} (\textsf{A}), the configuration of the left half beam is equivalent to that of a cantilever beam with fixed end at $s = S/2$ and applied force $\mathbf{P} = P_1 \physf_1 + P_2 \physf_2 $ at $s = 0$ (as shown in Figure~\ref{fig:BeamSchematic} (\textsf{B})). Recall that we assume $|\mathbf{P}_t| = \mu |\mathbf{P}_n|$.
+The direction of frictional force $\mathbf{P}_t$ is in opposite to the direction of actual sliding of the beam, which aligns with the tangential direction of the beam's neutral axis at position $s = 0$.
+The direction of normal reaction force $\mathbf{P}_n$ is perpendicular to $\mathbf{P}_t$, pointing to the opposite side of the trench edge. We have relations
+\begin{align}
+    \label{eq:P1}
+    P_1 &= P_n \sin(\theta_0) - \mu P_n \cos(\theta_0), \\
+    \label{eq:P2}
+    P_2 &= - \left (P_n \cos(\theta_0) + \mu P_n \sin(\theta_0)\right),
+\end{align}
+where $\theta_0 = \theta(s = 0)$, $P_n = |\mathbf{P}_n|$ is the magnitude of normal reaction force. We introduce dimensionless variables $\xi = 2s/S$, $\hat{\theta}(\xi) = \theta(s)$, $k = P_n S^2/(4 E I)$ and $g(\xi) = \hat{\theta}(\xi) - \theta_0$ and substitute them into the ODE~\eqref{eq:Elastica}, the transformed dimensionless governing equation becomes
+\begin{equation}
+    \label{eq:NonDimElastica}
+    \frac{d^2 g(\xi)}{d \xi^2} + k\left[\cos(g(\xi)) - \mu  \sin(g(\xi)) \right] = 0,
+\end{equation}
+with boundary conditions
+\begin{align}
+    \label{eq:NonDimBC1}
+    & \left. g \right|_{\xi = 0} = 0, \\
+    \label{eq:NonDimBC2}
+    & \left. \frac{dg (\xi)}{d\xi} \right|_{\xi = 0} = 0.
+\end{align}
+
+We introduce $\beta(\xi) = g(\xi) + g_0$, where $\cos(g_0) = -\mu/\sqrt{1+\mu^2}$ and $\pi/2 \leq g_0 \leq \pi$, then transform~\eqref{eq:NonDimElastica}-\eqref{eq:NonDimBC2} into
+\begin{equation}
+    \label{eq:StaElastica}
+    \frac{d^2 \beta(\xi)}{d \xi^2} + k \sqrt{1+\mu^2} \sin(\beta(\xi)) = 0,
+\end{equation}
+with boundary conditions
+\begin{align}
+    \label{eq:StaBC1}
+    & \left. \beta \right|_{\xi = 0} = g_0, \\
+    \label{eq:StaBC2}
+    & \left. \frac{d \beta (\xi)}{d\xi} \right|_{\xi = 0} = 0.
+\end{align}
+
+The analytical solution for~\eqref{eq:StaElastica} is given by
+\begin{equation}
+    \label{eq:StaElasticaSol}
+    \beta(\xi) =  2 \arcsin \left(\sqrt{m} \ \text{cd}\left(\xi \sqrt{k(1+\mu^2)^{1/2}}, m \right)\right)
+\end{equation}
+where $\text{cd}(u, m) = \cos(\psi)/\sqrt{1 - m \sin^2(\psi)}$ denotes a Jacobi elliptic function, $\psi$ is the Jacobi amplitude, and parameter $m =\left(1 + \mu/\sqrt{1 + \mu^2}\right)/2 $.
+
+Given $k$ value and coefficient of friction $\mu$, we can solve for the angle of deflection as $\hat{\theta}(\xi) = \beta(\xi) + \theta_0 - g_0 $, where $\theta_0$ can be calculated through $\theta_0 = - g(1)$.
+Recall that $dx_1/ds = \cos(\theta(s))$ and $dx_2/ds = \sin(\theta(s))$, we obtain the relations among arc length $S$, trench span $L$ and mid span displacement $w_0$ by integration as
+\begin{align}
+    \label{eq:LS}
+    L &= S \int_0^1 \cos(\hat{\theta}(\xi))\  d\xi , \\
+    \label{eq:w0S}
+    w_0 &= \frac{S}{2} \int_0^1 \sin(\hat{\theta}(\xi))\  d\xi.
+\end{align}
+We define the dimensionless mid span displacement $\hat{w}_0 = w_0/L$ and dimensionless force $\hat{F} = FL^2/(EI)$. Combining equation~\eqref{eq:LS} and~\eqref{eq:w0S}, we obtain that
+\begin{equation}
+    \label{eq:w0L}
+    \hat{w}_0 =  \frac{1}{2}  \frac{\int_0^1 \sin(\hat{\theta}(\xi))\  d\xi}{\int_0^1 \cos(\hat{\theta}(\xi))\  d\xi} .
+\end{equation}
+From the free body diagram and equation~\eqref{eq:P2} as well as the dimensionless variable $k = P_n S^2/(4 E I)$, we obtain that
+\begin{equation}
+    \label{eq:Fhat}
+    \hat{F} =  8k\left(\int _0^1 \cos(\hat{\theta}(\xi))\  d\xi \right)^2
+    \left(\cos (\theta _0 ) + \mu \sin(\theta _0) \right).
+\end{equation}
+
+
+The dimensionless force-displacement curves for $\mu = \{0, 0.5, 0.9\}$ are plotted in dashed lines (gray) in Figure~\ref{fig:NBSComparison} (\textsf{A}).
+
+For the model of sinusoidal frictional coefficient $\mu(s)$ as in~\eqref{eq:muofS}, we solve for $\hat{F}$-$\hat{w}_0$ curves using a level-set based method.
+For a point $Q(k,\mu)$ in the parameter space $\{(k,\mu) |\  0\leq k\leq 5,\  0\leq \mu \leq 1\}$, we solve the dimensionless ODE~\eqref{eq:NonDimElastica} and obtain an associated array of variables $\{k ,\mu, S = \hat{S}(k,\mu), \hat{w}_0, \hat{F}\}$.
+%
+All points on the curve $\Gamma_{k,\mu} = \{ (k,\mu) | \varphi_{k,\mu}(S,\mu)  = 0\}$, where $\varphi_{k,\mu}(S,\mu) = \mu - \mu_0 \left( 1 + \hat{A} \cos\left(2 \pi \hat{S}(k,\mu)/\lambda + \phi \right)\right)$ is the level-set function, should satisfy the condition~\eqref{eq:muofS}.
+We retrieve the $\hat{w}_0$ and $\hat{F}$ values associated with all points on $\Gamma$ and plot $\hat{F}$-$\hat{w}_0$ curves (green) in Figure~\ref{fig:NBSComparison} (\textsf{A}).
+
+\clearpage
