@@ -187,12 +187,16 @@ Wenqiang Fang, Sayaka Kochiyama, and Haneesh Kesari
 The following changes  appear in red in the revised version of the manuscript.
 % {\bf Changes in response to Reviewer criticisms}
 
-% \begin{enumerate}[label=\textit{Mc.\arabic*}]
-% %
-% \item \label{a1} In response to Reviewer \#1's comment (listed as comment \ref{r1c3} of this letter) regarding the existing frameworks for estimating head accelerations, we have modified the third paragraph in page 4. We added the work of Genin \textit{et al.}~\cite{genin1997} as a reference.
-% %
-% \item \label{a2} In response to Reviewer \#1's comment (listed as comment \ref{r1c4} of this letter) regarding the existing frameworks for estimating head accelerations, we have modified the third paragraph in page 4. We added the works of Madgwick \textit{et al.}~\cite{madgwick2013} and Naunheim \textit{et al.}~\cite{naunheim2003} as references.
-% \end{enumerate}
+\begin{enumerate}[label=\textit{Mc.\arabic*}]
+%
+\item \label{a1} In response to Reviewer \#1's comment (listed as comment \ref{r1c3} of this letter) regarding pointing out static loading explicitly, we have modified the first paragraph in page 7. We added ``Each point on that curve corresponds to a static equilibrium configuration.''
+%
+\item \label{a2} In response to Reviewer \#1's comment (listed as comment \ref{r1c3} of this letter) regarding the details of the loading in the experiment, we have modified the third paragraph of $\S$3. We added ``The MTS was driven by a DC servo motor, whose motion was controlled through a PID algorithm. The stage was moved in  $2~\mu \rm m$ increments. During the increment, the stage's velocity was maintained between ~$50$ and $200~\mu \rm m/sec$. Thus, each  stage increment took anywhere between $10$ and $40~\rm{ms}$. After each increment, the stage was held motionless so that there was a $2100~\rm{ms}$ time interval  between the starting points of any two consecutive increments. Each data point that we report was calculated using the  average value of the sensor readings collected over the last $100~\rm{ms}$ of one of those time intervals.''
+%
+\item \label{a3} In response to Reviewer \#2's comment (listed as comment \ref{r2c2} of this letter) regarding the labeling of figures, we have changed ``Figure 1'' to ``Figure 3'' in multiple places, including the last paragraph in page 2, the two paragraphs in page 4, the first paragraph in page 7, and the last two paragraphs in page 12.
+%
+\item \label{a4} In response to Reviewer \#2's comment (listed as comment \ref{r2c2} of this letter) regarding the language being spoken, we  XXX
+\end{enumerate}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -209,7 +213,7 @@ The following changes  appear in red in the revised version of the manuscript.
 We thank the Reviewer for their very generous comments regarding our manuscript.
 
 \newpage
-\item \label{r1c2} {\bf `` A few minor comments to help clarify and strengthen the work: a) In the SS experiments, how it is ascertained that the boundary conditions correspond to the simply supported conditions.''}
+\item \label{r1c2} {\bf ``A few minor comments to help clarify and strengthen the work: a) In the SS experiments, how it is ascertained that the boundary conditions correspond to the simply supported conditions.''}
 
 % We thank the reviewer for the comments on helping clarify and strengthen the work.
 
@@ -253,20 +257,20 @@ Comparison of the predictions from the  elastica  theory for the deformed shapes
 \end{figure}
 
 \newpage
-\item \label{r1c3} {\bf ``b) The experiments all appear to be conducted for a static loading and this needs to be pointed out explicitly, in particular, when using friction in the model. The time scales over which the loading could be critical if dynamic friction is involved. Can any relevant details be provided in the paper?
-''}
+\item \label{r1c3} {\bf ``b) The experiments all appear to be conducted for a static loading and this needs to be pointed out explicitly, in particular, when using friction in the model. The time scales over which the loading could be critical if dynamic friction is involved. Can any relevant details be provided in the paper?''}
 
 We thank the reviewer for pointing out this lapse on our part. In order to rectify this lapse  we  have made the following changes.
 
 
-(i) In \S \textcolor{red}{xx} of the revised manuscript,  we now explicitly state that, in our model, each of the configurations for which we derive quantitative predictions are taken to be in static equilibrium.
+(i) In \S 1 of the revised manuscript,  we now explicitly state that, in our model, each of the configurations for which we derive quantitative predictions are taken to be in static equilibrium.
 
 (ii) We now provide details about the stage's motion and the time scales involved in the experiment in the revised version of the manuscript. These newly added details appear in red in the third paragraph of $\S$3 of the revised manuscript. We repeat those details below for the Reviewer's convenience.
 
 Note that in the below quote MTS stands for Mechanical Testing Stage.
 
 \textit{The loading phase of the tests were conducted by moving the MTS in
- the~$-\physe_2$ direction at an average velocity of ~$\approx 1~\mu\rm m/sec$. The MTS was driven by a DC servo motor, whose motion was controlled through a PID algorithm. The stage was moved in  $2~\mu \rm m$ increments. During the increment, the stage's velocity was maintained between ~$50$ and $200~\mu \rm m/sec$. Thus, each  stage increment took anywhere between $10$ and $40~\rm{ms}$. After each increment, the stage was held motionless so that there was a $2100~\rm{ms}$ time interval  between the starting points of any two consecutive increments. Each data point that we report was calculated using the  average value of the sensor readings collected over the last $100~\rm{ms}$ of one of those time intervals.}
+ the~$-\physe_2$ direction at an average velocity of ~$\approx 1~\mu\rm m/sec$. 
+ The MTS was driven by a DC servo motor, whose motion was controlled through a PID algorithm. The stage was moved in  $2~\mu \rm m$ increments. During the increment, the stage's velocity was maintained between ~$50$ and $200~\mu \rm m/sec$. Thus, each  stage increment took anywhere between $10$ and $40~\rm{ms}$. After each increment, the stage was held motionless so that there was a $2100~\rm{ms}$ time interval  between the starting points of any two consecutive increments. Each data point that we report was calculated using the  average value of the sensor readings collected over the last $100~\rm{ms}$ of one of those time intervals.}
 
 
  % It is true as the reviewer points that each   configuration that theory model is a static configuration.
@@ -278,8 +282,7 @@ Note that in the below quote MTS stands for Mechanical Testing Stage.
  % as the reviewer as so astutrely noted depending on the  time-scales the dynamic friction could be important.
 
 \newpage
-\item \label{r1c4} {\bf ``
-c) With regard to the elastica theory, an extension would be the rod theory, which would be needed for a three-dimensional setting; see Antman, S. S., Problems in Nonlinear Elasticity, Springer.''}
+\item \label{r1c4} {\bf ``c) With regard to the elastica theory, an extension would be the rod theory, which would be needed for a three-dimensional setting; see Antman, S. S., Problems in Nonlinear Elasticity, Springer.''}
 
 % Although we have introduced our mathematical notions and definitions in a general three-dimensional context, we clearly stated that our modelling the spicule's deformation is two dimensional in the last paragraph in page 6 of the manuscript:
 % ``Considering the geometry in the SS experiments (e.g., see Figure~2), in our model we take that the spicule's displacements to be two dimensional in nature.''
@@ -308,7 +311,7 @@ We thank the Reviewer for bringing up the rod theory and encouraging us to expan
 \item \label{r2c1}{\bf ``The authors report on the three-point bending tests of marine sponge fibers and the possible mechanism for the sawtooth-pattern during the bending tests. They argued that the sawtooth-pattern is originated from the stick-slip motion on the supporting substance and eliminated the Cook-Gordon mechanism.
 While Cook-Gordon mechanism is valid during the fracture of the materials, I am curious whether the experiment here caused the fracture of the spicule?
 If not, then the bending of spicule may remain in the "elastic deformation" and the stick-slip should be caused by the friction on the supporting layer, as stated by the authors. Then the initial argument is meaningless.
-If yes, how is the fractured surface looks like? Will the propagation of cracks have any correlation to the sawtooth-pattern? ''}
+If yes, how is the fractured surface looks like? Will the propagation of cracks have any correlation to the sawtooth-pattern?''}
 
 
 
@@ -318,7 +321,7 @@ All  sawtooth patterns that we attempt to explain in our manuscript are from exp
 \begin{figure}[H]
 \centering
 \includegraphics[width = 1.\textwidth]{Figures/Surfaces.pdf}
-\caption{Force-displacement curves and optical images of the fractured surfaces for (A and B) \textit{Monorhaphis chuni} anchor spicules, (C and D) \textit{Rosella racovitzae} spicules (adapted from Fig. 4 of~\citet{kochiyama2021sawtooth}), and (E and G) \textit{Euplectella aspergillum} (\textit{Ea.}) anchor spicules (adapted from Fig. 3 of~\citet{monn2017enhanced}).
+\caption{Force-displacement curves and optical images of the fractured surfaces for (A) and (B) \textit{Monorhaphis chuni} anchor spicules, (C) and (D) \textit{Rosella racovitzae} spicules (adapted from Fig. 4 of~\citet{kochiyama2021sawtooth}), and (E) and (F) \textit{Euplectella aspergillum} (\textit{Ea.}) anchor spicules (adapted from Fig. 3 of~\citet{monn2017enhanced}).
 }
 \label{fig:Surfaces}
 \end{figure}
@@ -328,7 +331,7 @@ In Fig.~\ref{fig:Surfaces}, the experiments on \textit{Ea.} spicules were perfor
 
 Regarding the Reviewer's question of "Will the propagation of cracks have any correlation to the sawtooth-pattern?" we have not measured the evolution of the crack(s) with loading in our experiments. (Only the final fracture surfaces, as those shown in Fig.~\ref{fig:Surfaces}, are available.) Neither is such information available for the experiments on \textit{M. chuni} and \textit{R. racovitzae}. Measurement of the crack(s) evolution in spicules during loading is quite a challenging task due to the length scales involved (the \textit{Ea.} spicules are typically 50 micrometer in diameter), and the fact that the crack(s) surface(s) can be 3D and/or multiply connected in nature. Since no data is available on how the crack(s) evolve during the loading process, we cannot answer whether or not the "propagation of cracks have any correlation to the sawtooth-pattern." We can only comment that if such a correlation is indeed observed then that would be evidence against our hypothesis, and if no such correlation is found then that would further strengthen our hypothesis.
 
-In the work of~\citet{clegg1990simple}, a correlation was found between the evolution of the crack(s) and the drops in the force-deflection curve. The correlation of the evolution of the crack(s) with the force-deflection curve in the work of Clegg et al. is a reflection of the operation of the Cook-Gordon mechanism, whereby the interfaces repeatedly arrest crack growth, leading to a toughening effect. However, recent experiments and large scale fracture simulations~\cite{monn2020lamellar} have revealed that the spicules are not significantly tougher compared to the biogenic silica that composes them, and that the Cook-Gordon mechanism is suppressed in them due to the curved nature of the interfaces.
+In the work of~\citet{clegg1990simple}, a correlation was found between the evolution of the crack(s) and the drops in the force-deflection curve. The correlation of the evolution of the crack(s) with the force-deflection curve in the work of Clegg et al. is a reflection of the operation of the Cook-Gordon mechanism, whereby the interfaces repeatedly arrest crack growth, leading to a toughening effect. However, recent experiments and large scale fracture simulations~\citep{monn2020lamellar} have revealed that the spicules are not significantly tougher compared to the biogenic silica that composes them, and that the Cook-Gordon mechanism is suppressed in them due to the curved nature of the interfaces.
 
 % However, as the crack may grow inside the spicules, optical micrographs can not provide such evidence. Sophisticated experimental design involving electric circuit may be effective for the purpose of monitoring crack propagation.
 % Since we have difficulty monitoring the crack propagation during our tests, we cannot conclude whether the propagation of cracks have any correlation to the sawtooth pattern solely from the final fractured surfaces of the spicules after the tests.
@@ -342,7 +345,7 @@ In response to the reviewer's above comments, we have made the following two cha
 
 (i) Regarding the comment that the labeling is unclear, we believe that what led to this comment was the wrong figures being referred to at some locations in the text. For example, in the fifth and sixth paragraphs of $\S$1 in the original submission, Figure $1$ was incorrectly referred to instead of Figure $3$. We have corrected these incorrect references in the revised version of the manuscript.
 
-(ii) Regarding the Reviewer's concern about the language appearing "spoken," we have tried our utmost to address this comment by changing the text at several locations in the revised version of the manuscript.
+(ii) Regarding the Reviewer's concern about the language appearing ``spoken'', we have tried our utmost to address this comment by changing the text at several locations in the revised version of the manuscript.
 
 
 \end{enumerate}
